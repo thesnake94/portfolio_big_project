@@ -294,10 +294,10 @@
 				<div class="divider-custom-line"></div>
 			</div>
 			<form>      
-				<input name="name" type="text" class="feedback-input" placeholder="Nom" />   
-				<input name="name" type="text" class="feedback-input" placeholder="Prénom" />   
-				<input name="email" type="text" class="feedback-input" placeholder="Email" />
-				<textarea name="message" class="feedback-input" placeholder="Message"></textarea>
+				<input name="name" type="text" class="feedback-input" placeholder="Nom" required="required" data-error="Nom est obligatoire." />   
+				<input name="surname" type="text" class="feedback-input" placeholder="Prénom" required="required" data-error="Prénom est obligatoire." />   
+				<input name="email" type="email" class="feedback-input" placeholder="Email" required="required" data-error="Un email valid est obligatoire." />
+				<textarea name="message" class="feedback-input" placeholder="Message" required="required" data-error="Veuillez remplir le champ Message."></textarea>
 				<input class="btnC center" type="submit" value="ENVOYER"/>
 			</form>
 			<div class="row text-white">
