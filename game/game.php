@@ -14,7 +14,7 @@
 		<meta name="author" content="Romdhane Dayen" />
 		<title>Projets ROMDHANE Dayen</title>
 		<!-- Favicon-->
-		<link rel="icon" type="image/x-icon" href="/portfolio/assets/pdp moi png.png" />
+		<link rel="icon" type="image/x-icon" href="../portfolio/assets/pdp moi png.png" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -37,7 +37,7 @@
 			type="text/css"
 		/>
 		<!-- Core theme CSS (includes Bootstrap)-->
-		<link href="/portfolio/css/styles.css" rel="stylesheet" />
+		<link href="../portfolio/css/styles.css" rel="stylesheet" />
 	</head>
 
 	<body id="page-top">
@@ -63,7 +63,7 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/index.php"
+							<a class="nav-link py-3 px-0 px-lg-3" href="../index.php"
 								>Accueil</a
 							>
 						</li>
@@ -113,11 +113,11 @@
 					<!-- game Item 1-->
 					<div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="text-center text-white">The snake game</h3>
-						<a href="/game/snake/snake.php">
+						<a href="../game/snake/snake.php">
 							<div class="portfolio-item mx-auto">
 								<img
 									class="img-fluid h-100 w-100"
-									src="/game/img/snake_game.png"
+									src="../game/img/snake_game.png"
 									alt="project intro système informatique"
 								/>
 							</div>
@@ -135,7 +135,7 @@
 						>
 							<img
 								class="img-fluid h-100 w-100"
-								src="/portfolio/assets/img/project/project python.jpg"
+								src="../portfolio/assets/img/project/project python.jpg"
 								alt="project algo python"
 							/>
 						</div>
@@ -183,10 +183,7 @@
 					<div class="col-lg-4">
 						<h4 class="text-uppercase mb-4">Autres</h4>
 						<p class="lead mb-0">
-							<a href="/index.php#contact">Me contacter</a><br />
-						</p>
-						<p class="lead mb-0">
-							<a href="/admin/login.php">Se connecter</a><br>
+							<a href="../index.php#contact">Me contacter</a><br />
 						</p>
 					</div>
 				</div>
@@ -202,6 +199,6 @@
 		<!-- Core theme JS-->
 		<script src="js/scripts.js"></script>
 		<!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
-		<script src="/portfolio/js/main.js"></script>
+		<script src="../portfolio/js/main.js"></script>
 	</body>
 </html>

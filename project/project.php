@@ -189,16 +189,13 @@
                         <p class="lead mb-0">
                             <a href="../index.php#contact">Me contacter</a><br />
                         </p>
-                        <p class="lead mb-0">
-                            <a href="../admin/login.php">Se connecter</a><br>
-                        </p>
                     </div>
 				</div>
 			</div>
 		</footer>
 		<!-- Copyright Section-->
 		<div class="copyright py-4 text-center text-white">
-			<div class="container"><small>Copyright &copy; ROMDHANE Dayen 2023</small></div>
+		<div class="container"><a href="admin/login.php"><small>Copyright &copy; </a> ROMDHANE Dayen 2023</small></div>
 		</div>
 
 
