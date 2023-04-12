@@ -253,7 +253,7 @@
 				<h3 class="text-center text-white">Html/CSS/JS</h3>
 
 				<a class="portfolio-item mx-auto" href="project/project3.php">
-					<img class="img-fluid h-100 w-100" src="portfolio/assets/img/project/project html css js.png"
+					<img class="img-fluid h-100 w-100" src="portfolio/assets/img/project/project_html_css_js.png"
 						alt="project html css js" />
 				</a>
 			</div>
