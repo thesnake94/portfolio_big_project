@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE php>
+<php lang="fr">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -63,7 +63,7 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/index.html"
+							<a class="nav-link py-3 px-0 px-lg-3" href="/index.php"
 								>Accueil</a
 							>
 						</li>
@@ -113,7 +113,7 @@
 					<!-- Portfolio Item 1-->
 					<div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="text-center text-white">Intro réseaux</h3>
-						<a class="portfolio-item mx-auto" href="project1.html">
+						<a class="portfolio-item mx-auto" href="project1.php">
 							<img
 								class="img-fluid h-100 w-100"
 								src="/portfolio/assets/img/project/porject intro systeme informatique.jpg"
@@ -124,7 +124,7 @@
 					<!-- Portfolio Item 2-->
 					<div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="text-center text-white">Intro algo Python</h3>
-						<a class="portfolio-item mx-auto" href="project2.html">
+						<a class="portfolio-item mx-auto" href="project2.php">
 							<img
 								class="img-fluid h-100 w-100"
 								src="/portfolio/assets/img/project/project python.jpg"
@@ -136,11 +136,11 @@
 					<div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="text-center text-white">Html/CSS/JS</h3>
 
-						<a class="portfolio-item mx-auto" href="project3.html">
+						<a class="portfolio-item mx-auto" href="project3.php">
 							<img
 								class="img-fluid h-100 w-100"
-								src="/portfolio/assets/img/project/project html css js.png"
-								alt="project html css js"
+								src="/portfolio/assets/img/project/project php css js.png"
+								alt="project php css js"
 							/>
 						</a>
 					</div>
@@ -187,10 +187,10 @@
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">Autres</h4>
                         <p class="lead mb-0">
-                            <a href="/index.html#contact">Me contacter</a><br />
+                            <a href="/index.php#contact">Me contacter</a><br />
                         </p>
                         <p class="lead mb-0">
-                            <a href="/admin/login.html">Se connecter</a><br>
+                            <a href="/admin/login.php">Se connecter</a><br>
                         </p>
                     </div>
 				</div>
@@ -365,7 +365,7 @@
 									<!-- Portfolio Modal - Image-->
 									<img
 										class="img-fluid rounded mb-5"
-										src="/portfolio/assets/img/project/project html css js.png"
+										src="/portfolio/assets/img/project/project php css js.png"
 										alt="..."
 									/>
 									<!-- Portfolio Modal - Text-->
@@ -395,4 +395,4 @@
 		<!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
 		<script src="/portfolio/js/main.js"></script>
 	</body>
-</html>
+</php>

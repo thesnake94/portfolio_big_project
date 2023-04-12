@@ -14,7 +14,7 @@
 		<meta name="author" content="Romdhane Dayen" />
 		<title>Projets ROMDHANE Dayen</title>
 		<!-- Favicon-->
-		<link rel="icon" type="image/x-icon" href="/bootstrap/assets/pdp moi png.png" />
+		<link rel="icon" type="image/x-icon" href="/portfolio/assets/pdp moi png.png" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -47,7 +47,7 @@
 			id="mainNav"
 		>
 			<div class="container">
-				<a class="navbar-brand" href="#page-top">Mes Projets</a>
+				<a class="navbar-brand" href="#page-top">Mes jeux</a>
 				<button
 					class="navbar-toggler text-uppercase font-weight-bold bg-info text-white rounded"
 					type="button"
@@ -63,15 +63,13 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/index.html"
+							<a class="nav-link py-3 px-0 px-lg-3" href="/index.php"
 								>Accueil</a
 							>
 						</li>
 
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/project/project.html"
-								>Projets</a
-							>
+							<a class="nav-link py-3 px-0 px-lg-3" href="#jeux">Jeux</a>
 						</li>
 					</ul>
 				</div>
@@ -81,50 +79,65 @@
 		<header class="masthead text-white text-center bg-image">
 			<div class="container d-flex align-items-center flex-column">
 				<!-- Masthead Heading-->
-				<h1 class="masthead-heading text-uppercase mb-0">INTRODUCTION RESEAUX</h1>
+				<h2 class="masthead-heading text-uppercase mb-0">Dayen ROMDHANE</h2>
+				<!-- Icon etoile-->
+				<div class="divider-custom divider-light">
+					<div class="divider-custom-line"></div>
+					<div class="divider-custom-icon">
+						<i class="fas fa-shield"></i>
+					</div>
+					<div class="divider-custom-line"></div>
+				</div>
+				<!-- Masthead Subheading-->
+				<h1 class="masthead-subheading font-weight-light mb-0">Mes jeux</h1>
+
+				<!-- <p class="masthead-subheading font-weight-light mb-0">Etudiant en cybersécurité</p> -->
 			</div>
 		</header>
 
-		<!-- Projets Section-->
-		<section class="page-section portfolio bg-dark" id="projet">
+		<!-- game Section-->
+		<section class="page-section portfolio bg-dark" id="jeux">
 			<div class="container">
-				<div class="modal-dialog modal-xl">
-					<div class="modal-content">
-						<div class="modal-body text-center pb-5">
-							<div class="container">
-								<div class="row justify-content-center">
-									<div class="col-lg-8">
-										<!-- Portfolio Modal - Title-->
-										<h2
-											class="portfolio-modal-title text-secondary text-uppercase mb-0"
-										>
-											INTRODUCTION RESEAUX
-										</h2>
-										<!-- Icon Divider-->
-										<div class="divider-custom">
-											<div class="divider-custom-line"></div>
-											<div class="divider-custom-icon">
-												<i class="fas fa-laptop"></i>
-											</div>
-											<div class="divider-custom-line"></div>
-										</div>
-										<!-- Portfolio Modal - Image-->
-										<img
-											class="img-fluid rounded mb-5"
-											src="/portfolio/assets/img/project/porject intro systeme informatique.jpg"
-											alt="..."
-										/>
-										<!-- Portfolio Modal - Text-->
-										<p class="mb-4">
-											Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit. Mollitia neque assumenda ipsam nihil, molestias
-											magnam, recusandae quos quis inventore quisquam velit
-											asperiores, vitae? Reprehenderit soluta, eos quod
-											consequuntur itaque. Nam.
-										</p>
-									</div>
-								</div>
+				<!-- Portfolio Section Heading-->
+				<h2 class="page-section-heading text-center text-uppercase text-white mb-0">
+					Tous mes jeux
+				</h2>
+				<!-- Icon Divider-->
+				<div class="divider-custom divider-light">
+					<div class="divider-custom-line"></div>
+					<div class="divider-custom-icon"><i class="fas fa-tasks"></i></div>
+					<div class="divider-custom-line"></div>
+				</div>
+				<!-- game Grid Items-->
+				<div class="row justify-content-center">
+					<!-- game Item 1-->
+					<div class="col-md-6 col-lg-4 mb-5">
+						<h3 class="text-center text-white">The snake game</h3>
+						<a href="/game/snake/snake.php">
+							<div class="portfolio-item mx-auto">
+								<img
+									class="img-fluid h-100 w-100"
+									src="/game/img/snake_game.png"
+									alt="project intro système informatique"
+								/>
 							</div>
+						</a>
+					</div>
+
+					<!-- game Item 2-->
+					<div class="col-md-6 col-lg-4 mb-5">
+						<h3 class="text-center text-white">Intro algo Python</h3>
+
+						<div
+							class="portfolio-item mx-auto"
+							data-bs-toggle="modal"
+							data-bs-target="#portfolioModal2"
+						>
+							<img
+								class="img-fluid h-100 w-100"
+								src="/portfolio/assets/img/project/project python.jpg"
+								alt="project algo python"
+							/>
 						</div>
 					</div>
 				</div>
@@ -167,16 +180,15 @@
 						></a>
 					</div>
 					<!-- Footer About Text-->
-					<!-- Footer About Text-->
-                    <div class="col-lg-4">
-                        <h4 class="text-uppercase mb-4">Autres</h4>
-                        <p class="lead mb-0">
-                            <a href="/index.html#contact">Me contacter</a><br />
-                        </p>
-                        <p class="lead mb-0">
-                            <a href="/admin/login.html">Se connecter</a><br>
-                        </p>
-                    </div>
+					<div class="col-lg-4">
+						<h4 class="text-uppercase mb-4">Autres</h4>
+						<p class="lead mb-0">
+							<a href="/index.php#contact">Me contacter</a><br />
+						</p>
+						<p class="lead mb-0">
+							<a href="/admin/login.php">Se connecter</a><br>
+						</p>
+					</div>
 				</div>
 			</div>
 		</footer>

@@ -51,7 +51,7 @@
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
-                                        <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                        <a href="index.php" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a>
                                     </form>

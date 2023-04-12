@@ -63,13 +63,13 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/index.html"
+							<a class="nav-link py-3 px-0 px-lg-3" href="/index.php"
 								>Accueil</a
 							>
 						</li>
 
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/project/project.html"
+							<a class="nav-link py-3 px-0 px-lg-3" href="/project/project.php"
 								>Projets</a
 							>
 						</li>
@@ -81,7 +81,7 @@
 		<header class="masthead text-white text-center bg-image">
 			<div class="container d-flex align-items-center flex-column">
 				<!-- Masthead Heading-->
-				<h2 class="masthead-heading text-uppercase mb-0">Html/CSS/JS</h2>
+				<h1 class="masthead-heading text-uppercase mb-0">INTRODUCTION RESEAUX</h1>
 			</div>
 		</header>
 
@@ -98,7 +98,7 @@
 										<h2
 											class="portfolio-modal-title text-secondary text-uppercase mb-0"
 										>
-											Html/CSS/JS
+											INTRODUCTION RESEAUX
 										</h2>
 										<!-- Icon Divider-->
 										<div class="divider-custom">
@@ -111,7 +111,7 @@
 										<!-- Portfolio Modal - Image-->
 										<img
 											class="img-fluid rounded mb-5"
-											src="/portfolio/assets/img/project/project html css js.png"
+											src="/portfolio/assets/img/project/porject intro systeme informatique.jpg"
 											alt="..."
 										/>
 										<!-- Portfolio Modal - Text-->
@@ -166,14 +166,15 @@
 							><i class="fab fa-fw fa-linkedin-in"></i
 						></a>
 					</div>
-                    <!-- Footer About Text-->
+					<!-- Footer About Text-->
+					<!-- Footer About Text-->
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">Autres</h4>
                         <p class="lead mb-0">
-                            <a href="/index.html#contact">Me contacter</a><br />
+                            <a href="/index.php#contact">Me contacter</a><br />
                         </p>
                         <p class="lead mb-0">
-                            <a href="/admin/login.html">Se connecter</a><br>
+                            <a href="/admin/login.php">Se connecter</a><br>
                         </p>
                     </div>
 				</div>

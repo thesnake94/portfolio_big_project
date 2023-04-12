@@ -29,7 +29,7 @@
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-text mx-3">Admin</div>
             </a>
 
@@ -38,7 +38,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -57,9 +57,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Projets :</h6>
-                        <a class="collapse-item" href="tables.html">Modifier</a>
-                        <a class="collapse-item" href="tables.html">Supprimer</a>
-                        <a class="collapse-item" href="tables.html">Voir tout</a>
+                        <a class="collapse-item" href="tables.php">Modifier</a>
+                        <a class="collapse-item" href="tables.php">Supprimer</a>
+                        <a class="collapse-item" href="tables.php">Voir tout</a>
 
                     </div>
                 </div>
@@ -69,7 +69,7 @@
 
             <!-- message -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="message.html">
+                <a class="nav-link collapsed" href="message.php">
                     <i class="fas fa-fw fa-envelope"></i>
                     <span>Messages</span></a>
             </li>
@@ -177,7 +177,7 @@
                 <div class="modal-body">Sélectionner "Se déconnecter" pour fermer la session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                    <a class="btn btn-primary" href="/index.html">Se déconnecter</a>
+                    <a class="btn btn-primary" href="/index.php">Se déconnecter</a>
                 </div>
             </div>
         </div>

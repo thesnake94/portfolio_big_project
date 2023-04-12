@@ -63,13 +63,13 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/index.html"
+							<a class="nav-link py-3 px-0 px-lg-3" href="/index.php"
 								>Accueil</a
 							>
 						</li>
 
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/project/project.html"
+							<a class="nav-link py-3 px-0 px-lg-3" href="/project/project.php"
 								>Projets</a
 							>
 						</li>
@@ -173,10 +173,10 @@
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">Autres</h4>
                         <p class="lead mb-0">
-                            <a href="/index.html#contact">Me contacter</a><br />
+                            <a href="/index.php#contact">Me contacter</a><br />
                         </p>
                         <p class="lead mb-0">
-                            <a href="/admin/login.html">Se connecter</a><br>
+                            <a href="/admin/login.php">Se connecter</a><br>
                         </p>
                     </div>
 				</div>
