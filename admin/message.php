@@ -177,7 +177,7 @@ include "../includes/config.php";
                                                 echo "<td>" . $row['email'] . "</td>";
                                                 echo "<td>" . $row['message'] . "</td>"; 
                                                 echo "<td>" . $row['message'] . "</td>"; 
-                                                echo "<td><a href='project_admin/delete_msg.php?id=" . $row['id'] . "' onclick=\"return confirm('Etes vous sur de vouloir supprimer ?')\">Supprimer</a></td>";
+                                                echo "<td><a href='del_edit/delete_msg.php?id=" . $row['id'] . "' onclick=\"return confirm('Etes vous sur de vouloir supprimer ?')\">Supprimer</a></td>";
                                                 echo "<tr>";
                                             
                                             }

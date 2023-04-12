@@ -179,7 +179,7 @@ include "../includes/config.php";
                                                 echo "<td>" . $row['img1'] . "</td>";
                                                 echo "<td>" . $row['img2'] . "</td>";
                                                 echo '<td><a href="edit_post.php?edit_postid=' . $row['id'] . '">Modifier</a></td>';
-                                                echo '<td><a onclick="return confirm(\'Etes vous sur de vouloir supprimer ?\')" href="project_admin/delete_project.php?id=' . $row['id'] . '">Supprimer</a></td>';
+                                                echo '<td><a onclick="return confirm(\'Etes vous sur de vouloir supprimer ?\')" href="del_edit/delete_project.php?id=' . $row['id'] . '">Supprimer</a></td>';
                                                 echo "<tr>";
                                             
                                             }
