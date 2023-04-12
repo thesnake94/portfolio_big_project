@@ -14,7 +14,7 @@
 		<meta name="author" content="Romdhane Dayen" />
 		<title>Projets ROMDHANE Dayen</title>
 		<!-- Favicon-->
-		<link rel="icon" type="image/x-icon" href="/bootstrap/assets/pdp moi png.png" />
+		<link rel="icon" type="image/x-icon" href="../bootstrap/assets/pdp moi png.png" />
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
@@ -37,7 +37,7 @@
 			type="text/css"
 		/>
 		<!-- Core theme CSS (includes Bootstrap)-->
-		<link href="/portfolio/css/styles.css" rel="stylesheet" />
+		<link href="../portfolio/css/styles.css" rel="stylesheet" />
 	</head>
 
 	<body id="page-top">
@@ -63,13 +63,13 @@
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ms-auto">
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/index.php"
+							<a class="nav-link py-3 px-0 px-lg-3" href="../index.php"
 								>Accueil</a
 							>
 						</li>
 
 						<li class="nav-item mx-0 mx-lg-1">
-							<a class="nav-link py-3 px-0 px-lg-3" href="/project/project.php"
+							<a class="nav-link py-3 px-0 px-lg-3" href="../project/project.php"
 								>Projets</a
 							>
 						</li>
@@ -78,7 +78,7 @@
 			</div>
 		</nav>
 
-		<header class="masthead text-white text-center bg-image">
+		<header class="masthead text-white text-center bg-dark">
 			<div class="container d-flex align-items-center flex-column">
 				<!-- Masthead Heading-->
 				<h2 class="masthead-heading text-uppercase mb-0">
@@ -90,42 +90,24 @@
 		<!-- Projets Section-->
 		<section class="page-section portfolio bg-dark" id="projet">
 			<div class="container">
-				<div class="modal-dialog modal-xl">
-					<div class="modal-content">
-						<div class="modal-body text-center pb-5">
-							<div class="container">
-								<div class="row justify-content-center">
-									<div class="col-lg-8">
-										<!-- Portfolio Modal - Title-->
-										<h2
-											class="portfolio-modal-title text-secondary text-uppercase mb-0"
-										>
-											Introduction algorithmie Python
-										</h2>
-										<!-- Icon Divider-->
-										<div class="divider-custom">
-											<div class="divider-custom-line"></div>
-											<div class="divider-custom-icon">
-												<i class="fas fa-laptop"></i>
-											</div>
-											<div class="divider-custom-line"></div>
-										</div>
-										<!-- Portfolio Modal - Image-->
-										<img
-											class="img-fluid rounded mb-5"
-											src="/portfolio/assets/img/project/project python.jpg"
-											alt="..."
-										/>
-										<!-- Portfolio Modal - Text-->
-										<p class="mb-4">
-											Lorem ipsum dolor sit amet, consectetur adipisicing
-											elit. Mollitia neque assumenda ipsam nihil, molestias
-											magnam, recusandae quos quis inventore quisquam velit
-											asperiores, vitae? Reprehenderit soluta, eos quod
-											consequuntur itaque. Nam.
-										</p>
-									</div>
-								</div>
+				<div class="modal-body text-center text-white pb-5">
+					<div class="container">
+						<div class="row justify-content-center">
+							<div class="col-lg-8">								
+								<!-- Portfolio Modal - Image-->
+								<img
+									class="img-fluid rounded mb-5"
+									src="../portfolio/assets/img/project/project python.jpg"
+									alt="..."
+								/>
+								<!-- Portfolio Modal - Text-->
+								<p class="mb-4">
+									Lorem ipsum dolor sit amet, consectetur adipisicing
+									elit. Mollitia neque assumenda ipsam nihil, molestias
+									magnam, recusandae quos quis inventore quisquam velit
+									asperiores, vitae? Reprehenderit soluta, eos quod
+									consequuntur itaque. Nam.
+								</p>
 							</div>
 						</div>
 					</div>
@@ -173,10 +155,10 @@
                     <div class="col-lg-4">
                         <h4 class="text-uppercase mb-4">Autres</h4>
                         <p class="lead mb-0">
-                            <a href="/index.php#contact">Me contacter</a><br />
+                            <a href="../index.php#contact">Me contacter</a><br />
                         </p>
                         <p class="lead mb-0">
-                            <a href="/admin/login.php">Se connecter</a><br>
+                            <a href="../admin/login.php">Se connecter</a><br>
                         </p>
                     </div>
 				</div>
@@ -192,6 +174,6 @@
 		<!-- Core theme JS-->
 		<script src="js/scripts.js"></script>
 		<!-- <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script> -->
-		<script src="/portfolio/js/main.js"></script>
+		<script src="../portfolio/js/main.js"></script>
 	</body>
 </html>
