@@ -1,5 +1,47 @@
+
+<?php
+include '../includes/config.php';
+include '../includes/database.php';
+// Inclure la variable $db = new Database();
+$db = new Database();
+
+// Connexion à la base de données
+$conn = mysqli_connect("localhost", "root", "", "portfolio");
+
+// Vérifier la connexion
+if (mysqli_connect_errno()) {
+    // Erreur de connexion à la base de données
+    echo "Erreur de connexion à la base de données: " . mysqli_connect_error();
+    exit();
+}
+
+
+// Vérification des identifiants
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = mysqli_real_escape_string($db->link, $_POST['username']);
+    $password = mysqli_real_escape_string($db->link, $_POST['password']);
+
+    // Préparer la requête SQL
+    $stmt = $conn->prepare("SELECT * FROM user WHERE username=? AND password=?");
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+
+    // Récupérer le résultat de la requête
+    $result = $stmt->get_result();
+
+    if (mysqli_num_rows($result) == 1) {
+        // Identifiants corrects, redirection vers la page d'accueil
+        header("Location: index.php");
+        exit();
+    } else {
+        // Identifiants incorrects, affichage d'un message d'erreur
+        $error_message = "Identifiants incorrects";
+    }
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -41,19 +83,19 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" action="" method="post">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                            <input type="text" class="form-control form-control-user" name="username"
+                                                id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
+                                            <input type="password" class="form-control form-control-user" name="password"
                                                 id="exampleInputPassword" placeholder="Password">
                                         </div>
-                                        <a href="index.php" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                        <?php if (isset($error_message)) { ?>
+                                        <div class="alert alert-danger mt-3" role="alert"><?php echo $error_message; ?></div>
+                                        <?php } ?>
                                     </form>
                                 </div>
                             </div>
