@@ -1,5 +1,5 @@
 <?php
-include "../includes/config.php";
+include "../../includes/config.php";
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
     $sql = "DELETE FROM project WHERE id=$id";
 
     if (mysqli_query($conn, $sql)) {
-        header("Location: project.php?message=success");
+        header("Location: ../project.php?message=success");
         exit;
     } else {
         echo "Erreur de suppression de données: " . mysqli_error($conn);

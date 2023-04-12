@@ -1,5 +1,5 @@
 <?php
-include "../includes/config.php";
+include "../../includes/config.php";
 
 
 // Vérifier si l'ID est présent dans la requête GET
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
     // Exécuter la requête SQL
     if (mysqli_query($conn, $sql)) {
         // Rediriger vers la page d'affichage des données avec un message de confirmation
-        header("Location: message.php?message=success");
+        header("Location: ../message.php?message=success");
         exit;
     } else {
         // Afficher un message d'erreur si la suppression a échoué
