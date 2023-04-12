@@ -126,16 +126,6 @@ if (mysqli_connect_errno()) {
                     <ul class="navbar-nav ml-auto">
                        
 
-                        <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                        </li>
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
@@ -175,6 +165,7 @@ if (mysqli_connect_errno()) {
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
+                                            <th>Numéro</th>
                                             <th>Projet</th>
                                             <th>Description</th>
                                             <th>Image 1</th>
@@ -184,14 +175,38 @@ if (mysqli_connect_errno()) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
+
+                                        <?php 
+                                        // Sélectionner toutes les données de la table project
+                                        $sql = "SELECT * FROM project";
+                                        $result = mysqli_query($conn, $sql);
+
+                                        // Vérifier si des données ont été trouvées
+                                        if (mysqli_num_rows($result) > 0) {
+                                            // Afficher les données dans des td
+                                            while($row = mysqli_fetch_assoc($result)) {
+                                        
+                                                echo "<tr>";
+                                                echo "<td>" . $row['id'] . "</td>";
+                                                echo "<td>" . $row['title'] . "</td>";
+                                                echo "<td>" . $row['description'] . "</td>";
+                                                echo "<td>" . $row['img1'] . "</td>";
+                                                echo "<td>" . $row['img2'] . "</td>"; ?>
+                                                <td><a href="edit_post.php?edit_postid=">Modifier</a></td>
+                                                <td><a onclick="return confirm('Etes vous sur de vouloir supprimer ?')" href="delete_post.php?del_postid=">Supprimer</a></td>
+
+                                                <?php
+                                                echo "<tr>";
+                                            
+                                            }
+                                            } else {
+                                                // Aucune donnée trouvée dans la table
+                                                echo "Aucun projet trouvé dans la base de données.";
+                                            }
+
+                                            // Fermer la connexion à la base de données
+                                            mysqli_close($conn);
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
