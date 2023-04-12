@@ -1,3 +1,17 @@
+<?php
+
+// Connexion à la base de données
+$conn = mysqli_connect("localhost", "root", "", "portfolio");
+
+// Vérifier la connexion
+if (mysqli_connect_errno()) {
+    // Erreur de connexion à la base de données
+    echo "Erreur de connexion à la base de données: " . mysqli_connect_error();
+    exit();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -280,13 +294,45 @@
 				<div class="divider-custom-icon"><i class="fas fa-envelope"></i></div>
 				<div class="divider-custom-line"></div>
 			</div>
-			<form>      
-				<input name="name" type="text" class="feedback-input" placeholder="Nom" required="required" data-error="Nom est obligatoire." />   
-				<input name="surname" type="text" class="feedback-input" placeholder="Prénom" required="required" data-error="Prénom est obligatoire." />   
+
+
+			<?php 
+			// Récupération des données soumises par le formulaire
+			if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['message'])) {
+				$nom = $_POST['nom'];
+				$prenom = $_POST['prenom'];
+				$email = $_POST['email'];
+				$message = $_POST['message'];
+
+
+				// Préparation de la requête SQL d'insertion
+				$sql = "INSERT INTO contact (nom, prenom, email, message) VALUES ('$nom', '$prenom', '$email', '$message')";
+
+				// Exécution de la requête SQL
+				if ($conn->query($sql) === TRUE) {
+					echo "<script>alert('Votre message a été envoyé avec succès !');</script>";
+				} else {
+					echo "Erreur d'insertion de données: " . $conn->error;
+				}
+
+				// Fermeture de la connexion à la base de données
+				$conn->close();
+
+			}
+			  
+			
+
+			
+			?>
+			
+			<form method="POST">      
+				<input name="nom" type="text" class="feedback-input" placeholder="Nom" required="required" data-error="Nom est obligatoire." />   
+				<input name="prenom" type="text" class="feedback-input" placeholder="Prénom" required="required" data-error="Prénom est obligatoire." />   
 				<input name="email" type="email" class="feedback-input" placeholder="Email" required="required" data-error="Un email valid est obligatoire." />
 				<textarea name="message" class="feedback-input" placeholder="Message" required="required" data-error="Veuillez remplir le champ Message."></textarea>
 				<input class="btnC center" type="submit" value="ENVOYER"/>
 			</form>
+
 			<div class="row text-white">
 				<div class="col-lg-4 ms-auto" style="text-align: center;">
 					<div class="container" style="display: flex; justify-content: center;">
