@@ -1,20 +1,5 @@
 <?php
-include '../includes/config.php';
-include '../includes/database.php';
-// Inclure la variable $db = new Database();
-$db = new Database();
-
-// Connexion à la base de données
-$conn = mysqli_connect("localhost", "root", "", "portfolio");
-
-// Vérifier la connexion
-if (mysqli_connect_errno()) {
-    // Erreur de connexion à la base de données
-    echo "Erreur de connexion à la base de données: " . mysqli_connect_error();
-    exit();
-}
-
-
+include "../includes/config.php";
 ?>
 
 <!DOCTYPE html>
@@ -80,9 +65,10 @@ if (mysqli_connect_errno()) {
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Projets :</h6>
+                <a class="collapse-item" href="project.php">Voir tout</a>
                 <a class="collapse-item" href="project.php">Modifier</a>
                 <a class="collapse-item" href="project.php">Supprimer</a>
-                <a class="collapse-item" href="project.php">Voir tout</a>
+
 
             </div>
         </div>
@@ -193,7 +179,7 @@ if (mysqli_connect_errno()) {
                                                 echo "<td>" . $row['img1'] . "</td>";
                                                 echo "<td>" . $row['img2'] . "</td>"; ?>
                                                 <td><a href="edit_post.php?edit_postid=">Modifier</a></td>
-                                                <td><a onclick="return confirm('Etes vous sur de vouloir supprimer ?')" href="delete_post.php?del_postid=">Supprimer</a></td>
+                                                <td><a onclick="return confirm('Etes vous sur de vouloir supprimer ?')" href="delete_project.php?id=">Supprimer</a></td>
 
                                                 <?php
                                                 echo "<tr>";

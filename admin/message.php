@@ -1,14 +1,6 @@
 <?php
+include "../includes/config.php";
 
-// Connexion à la base de données
-$conn = mysqli_connect("localhost", "root", "", "portfolio");
-
-// Vérifier la connexion
-if (mysqli_connect_errno()) {
-    // Erreur de connexion à la base de données
-    echo "Erreur de connexion à la base de données: " . mysqli_connect_error();
-    exit();
-}
 ?>
 
 
@@ -165,6 +157,7 @@ if (mysqli_connect_errno()) {
                                             <th>Email</th>
                                             <th>Message</th>
                                             <th>Répondre</th>
+                                            <th>Supprimer</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -179,14 +172,12 @@ if (mysqli_connect_errno()) {
                                             while($row = mysqli_fetch_assoc($result)) {
                                         
                                                 echo "<tr>";
-                                                echo "<td>" . $row['id'] . "</td>";
                                                 echo "<td>" . $row['nom'] . "</td>";
                                                 echo "<td>" . $row['prenom'] . "</td>";
                                                 echo "<td>" . $row['email'] . "</td>";
-                                                echo "<td>" . $row['message'] . "</td>"; ?>
-                                                <td><a onclick="return confirm('Etes vous sur de vouloir supprimer ?')" href="delete_post.php?del_postid=">Supprimer</a></td>
-                                                
-                                                <?php
+                                                echo "<td>" . $row['message'] . "</td>"; 
+                                                echo "<td>" . $row['message'] . "</td>"; 
+                                                echo "<td><a href='delete_msg.php?id=" . $row['id'] . "' onclick=\"return confirm('Etes vous sur de vouloir supprimer ?')\">Supprimer</a></td>";
                                                 echo "<tr>";
                                             
                                             }
