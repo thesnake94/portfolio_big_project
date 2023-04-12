@@ -11,7 +11,7 @@
 	<meta name="author" content="Romdhane Dayen" />
 	<title>Portfolio ROMDHANE Dayen - Etudiant en cybersécurité</title>
 	<!-- Favicon-->
-	<link rel="icon" type="image/x-icon" href="/portfolio/assets/pdp moi png.png" />
+	<link rel="icon" type="image/x-icon" href="portfolio/assets/pdp moi png.png" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 	<!-- Font Awesome icons (free version)-->
@@ -21,10 +21,10 @@
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
 		type="text/css" />
 	<!-- Core theme CSS (includes Bootstrap)-->
-	<link href="/portfolio/css/styles.css" rel="stylesheet" />
+	<link href="portfolio/css/styles.css" rel="stylesheet" />
 </head>
 
-<body id="page-top">
+<body  class="bg-info" id="page-top">
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg text-uppercase fixed-top shadow-lg" id="mainNav">
 		<div class="container">
@@ -53,7 +53,7 @@
 						</a>
 					</li>
 					<li class="nav-item mx-0 mx-lg-1">
-						<a class="nav-link py-3 px-0 px-lg-3 " href="/game/game.php" onclick="closeNav()">
+						<a class="nav-link py-3 px-0 px-lg-3 " href="game/game.php" onclick="closeNav()">
 							Jeux
 						</a>
 					</li>
@@ -72,7 +72,7 @@
 		<div class="container d-flex align-items-center flex-column">
 			<!-- Masthead Avatar Image-->
 			<img class="masthead-avatar mb-5 rounded-circle img-responsive pdp_moi"
-				src="/portfolio/assets/img/photo de moi.jpg" alt="photo de moi haut de page" />
+				src="portfolio/assets/img/photo de moi.jpg" alt="photo de moi haut de page" />
 			<!-- Masthead Heading-->
 			<h1 class="masthead-heading text-uppercase mb-0">Dayen ROMDHANE</h1>
 			<!-- Icon etoile-->
@@ -121,7 +121,7 @@
 			</div>
 			<!-- About Section Button-->
 			<div class="text-center mt-4">
-				<a class="btn btn-xl btn-outline-light" href="/portfolio/assets/CV stage DAYEN ROMDHANE.pdf"
+				<a class="btn btn-xl btn-outline-light" href="portfolio/assets/CV stage DAYEN ROMDHANE.pdf"
 					target="_blank">
 					<i class="fas fa-download me-2"></i>
 					Télécharger mon CV !
@@ -142,19 +142,6 @@
 				<div class="divider-custom-line"></div>
 				<div class="divider-custom-icon"><i class="fa-regular fa-hourglass-half"></i></i></div>
 				<div class="divider-custom-line"></div>
-			</div>
-			<!-- expérience Section Content-->
-			<div class="row">
-				<div class="col-lg-4 ms-auto">
-					<p class="lead">
-						<!-- Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime tempora nihil, ut culpa officia blanditiis ad, excepturi fugiat explicabo laborum sapiente et nobis asperiores delectus temporibus vero optio, omnis ducimus. -->
-					</p>
-				</div>
-				<div class="col-lg-4 me-auto">
-					<p class="lead">
-						<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, possimus. In iste ullam enim laudantium quo corrupti. -->
-					</p>
-				</div>
 			</div>
 		</div>
 		<br>
@@ -247,17 +234,17 @@
 			<!-- Portfolio Item 1-->
 			<div class="col-md-6 col-lg-4 mb-5">
 				<h3 class="text-center text-white">Intro réseaux</h3>
-				<a class="portfolio-item mx-auto" href="/project/project1.php">
+				<a class="portfolio-item mx-auto" href="project/project1.php">
 					<img class="img-fluid h-100 w-100"
-						src="/portfolio/assets/img/project/porject intro systeme informatique.jpg"
+						src="portfolio/assets/img/project/porject intro systeme informatique.jpg"
 						alt="project intro système informatique" />
 				</a>
 			</div>
 			<!-- Portfolio Item 2-->
 			<div class="col-md-6 col-lg-4 mb-5">
 				<h3 class="text-center text-white">Intro algo Python</h3>
-				<a class="portfolio-item mx-auto" href="/project/project2.php">
-					<img class="img-fluid h-100 w-100" src="/portfolio/assets/img/project/project python.jpg"
+				<a class="portfolio-item mx-auto" href="project/project2.php">
+					<img class="img-fluid h-100 w-100" src="portfolio/assets/img/project/project python.jpg"
 						alt="project algo python" />
 				</a>
 			</div>
@@ -265,15 +252,15 @@
 			<div class="col-md-6 col-lg-4 mb-5">
 				<h3 class="text-center text-white">Html/CSS/JS</h3>
 
-				<a class="portfolio-item mx-auto" href="/project/project3.php">
-					<img class="img-fluid h-100 w-100" src="/portfolio/assets/img/project/project html css js.png"
+				<a class="portfolio-item mx-auto" href="project/project3.php">
+					<img class="img-fluid h-100 w-100" src="portfolio/assets/img/project/project html css js.png"
 						alt="project html css js" />
 				</a>
 			</div>
 		</div>
 		<!-- Button -->
 		<div class="col-12 text-center">
-			<button class="btn btn-primary btn-lg" onclick="location.href='/project/project.php'">
+			<button class="btn btn-primary btn-lg" onclick="location.href='project/project.php'">
 			Voir tous mes projets
 			</button>
 		</div>
@@ -310,7 +297,7 @@
 							<div class="contact">
 								<a href="https://github.com/thesnake94" rel="external" class="btn_github btnC"
 									target="_blank">
-									<img class="img-responsive logo_social" src="/IMG/github.webp" alt="logo github">
+									<img class="img-responsive logo_social" src="IMG/github.webp" alt="logo github">
 								</a>
 							</div>
 						</div>
@@ -325,7 +312,7 @@
 							<div class="contact">
 								<a href="https://www.linkedin.com/in/dayen-romdhane-1ba139252/" rel="external"
 									class="btn_linkedin btnC" target="_blank">
-									<img class="img-responsive logo_social" src="/IMG/linkedin.webp"
+									<img class="img-responsive logo_social" src="IMG/linkedin.webp"
 										alt="logo linkedin">
 								</a>
 							</div>
@@ -385,10 +372,10 @@
 				<div class="col-lg-4">
 					<h4 class="text-uppercase mb-4">Autres</h4>
 					<p class="lead mb-0">
-						<a href="/index.php#contact">Me contacter</a><br />
+						<a href="index.php#contact">Me contacter</a><br />
 					</p>
 					<p class="lead mb-0">
-						<a href="/admin/login.php">Se connecter</a><br>
+						<a href="admin/login.php">Se connecter</a><br>
 					</p>
 				</div>
 			</div>
@@ -415,7 +402,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
-	<script src="/portfolio/js/main.js"></script>
+	<script src="portfolio/js/main.js"></script>
 </body>
 
 </html>

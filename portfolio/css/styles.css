@@ -1,5 +1,5 @@
 header{
-  background-image: url('/portfolio/assets/img/background\ bulle.gif');
+  /* background-image: url("portfolio/assets/img/background\ bulle.gif"); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -84,7 +84,7 @@ body {
   text-align: var(--bs-body-text-align);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background-image: url('/portfolio/assets/img/background\ bulle.gif');
+  /* background-image: url('../assets/img/background_bulle.gif'); */
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
