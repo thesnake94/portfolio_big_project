@@ -64,9 +64,9 @@
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Projets :</h6>
-                        <a class="collapse-item" href="tables.php">Modifier</a>
-                        <a class="collapse-item" href="tables.php">Supprimer</a>
-                        <a class="collapse-item" href="tables.php">Voir tout</a>
+                        <a class="collapse-item" href="project.php">Modifier</a>
+                        <a class="collapse-item" href="project.php">Supprimer</a>
+                        <a class="collapse-item" href="project.php">Voir tout</a>
 
                     </div>
                 </div>

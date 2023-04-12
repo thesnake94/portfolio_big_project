@@ -1,3 +1,22 @@
+<?php
+include '../includes/config.php';
+include '../includes/database.php';
+// Inclure la variable $db = new Database();
+$db = new Database();
+
+// Connexion à la base de données
+$conn = mysqli_connect("localhost", "root", "", "portfolio");
+
+// Vérifier la connexion
+if (mysqli_connect_errno()) {
+    // Erreur de connexion à la base de données
+    echo "Erreur de connexion à la base de données: " . mysqli_connect_error();
+    exit();
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
