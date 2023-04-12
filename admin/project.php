@@ -240,7 +240,7 @@ if (mysqli_connect_errno()) {
                 <div class="modal-body">Sélectionner "Se déconnecter" pour fermer la session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                    <a class="btn btn-primary" href="/index.php">Se déconnecter</a>
+                    <a class="btn btn-primary" href="../index.php">Se déconnecter</a>
                 </div>
             </div>
         </div>
