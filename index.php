@@ -14,11 +14,9 @@ include "/includes/config.php";
 		content="Portfolio, cv, curiculum vitae, projet, dayen, romdhane, expérience, freelancer, indépendant, compétences, stage, guardia." />
 	<meta name="author" content="Romdhane Dayen" />
 	<title>Portfolio ROMDHANE Dayen - Etudiant en cybersécurité</title>
-	<!-- Favicon-->
 	<link rel="icon" type="image/x-icon" href="portfolio/assets/pdp moi png.png" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
-	<!-- Font Awesome icons (free version)-->
 	<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 	<!-- Google fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
