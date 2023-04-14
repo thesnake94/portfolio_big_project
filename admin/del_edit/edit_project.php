@@ -1,5 +1,14 @@
 <?php
-include "../includes/config.php";
+
+// Connexion à la base de données
+$conn = mysqli_connect("localhost", "root", "", "portfolio");
+
+// Vérifier la connexion
+if (mysqli_connect_errno()) {
+    // Erreur de connexion à la base de données
+    echo "Erreur de connexion à la base de données: " . mysqli_connect_error();
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -16,16 +25,16 @@ include "../includes/config.php";
     <title>Projects - Admin</title>
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -46,7 +55,7 @@ include "../includes/config.php";
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="../index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -65,8 +74,8 @@ include "../includes/config.php";
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Projets :</h6>
-                <a class="collapse-item" href="project.php">Voir tout</a>
-                <a class="collapse-item" href="add_project.php">Ajouter</a>
+                <a class="collapse-item" href="../project.php">Voir tout</a>
+                <a class="collapse-item" href="../add_project.php">Ajouter</a>
             </div>
         </div>
     </li>
@@ -75,7 +84,7 @@ include "../includes/config.php";
 
     <!-- message -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="message.php">
+        <a class="nav-link collapsed" href="../message.php">
             <i class="fas fa-fw fa-envelope"></i>
             <span>Messages</span></a>
     </li>
@@ -137,64 +146,106 @@ include "../includes/config.php";
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <div class="d-flex justify-content-between align-items-center">
-                        <h1 class="h3 mb-2 text-gray-800">Tous les projets</h1>
-                        <a href="add_project.php" class="btn btn-primary float-right">Ajouter un projet</a>
-                    </div>
-                   
+                    <h1 class="h3 mb-2 text-gray-800">Modifier le projet</h1>
+                    <?php
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>Numéro</th>
-                                            <th>Projet</th>
-                                            <th>Description</th>
-                                            <th>Image 1</th>
-                                            <th>Image 2</th>
-                                            <th>Modifier</th>
-                                            <th>Supprimer</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                    // Vérification si l'id a été fourni dans l'URL
+                    if (!isset($_GET['id'])) {
+                        echo "Il y a une erreur quelque part";
+                        exit();
+                    }
 
-                                        <?php 
-                                        // Sélectionner toutes les données de la table project
-                                        $sql = "SELECT * FROM project";
-                                        $result = mysqli_query($conn, $sql);
+                    $id = $_GET['id'];
 
-                                        // Vérifier si des données ont été trouvées
-                                        if (mysqli_num_rows($result) > 0) {
-                                            // Afficher les données dans des td
-                                            while($row = mysqli_fetch_assoc($result)) {
-                                        
-                                                echo "<tr>";
-                                                echo "<td>" . $row['number'] . "</td>";
-                                                echo "<td>" . $row['title'] . "</td>";
-                                                echo "<td>" . $row['description'] . "</td>";
-                                                echo "<td>" . $row['img1'] . "</td>";
-                                                echo "<td>" . $row['img2'] . "</td>";
-                                                echo '<td><a href="del_edit/edit_project.php?id=' . $row['id'] . '">Modifier</a></td>';
-                                                echo '<td><a onclick="return confirm(\'Etes vous sur de vouloir supprimer ?\')" href="del_edit/delete_project.php?id=' . $row['id'] . '">Supprimer</a></td>';
-                                                echo "<tr>";
-                                            
-                                            }
-                                            } else {
-                                                // Aucune donnée trouvée dans la table
-                                                echo "Aucun projet trouvé dans la base de données.";
-                                            }
+                    // Récupération des données existantes du projet pour l'id spécifié
+                    $sql = "SELECT * FROM project WHERE id = $id";
+                    $result = mysqli_query($conn, $sql);
 
-                                            // Fermer la connexion à la base de données
-                                            mysqli_close($conn);
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                    // Vérification si des données ont été trouvées
+                    if (mysqli_num_rows($result) > 0) {
+
+                        // Récupération des données existantes du projet
+                        $row = mysqli_fetch_assoc($result);
+
+                        // Vérification si le formulaire a été soumis
+                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                            // Récupération des données du formulaire
+                            $title = $_POST["title"];
+                            $number = $_POST["number"];
+                            $description = $_POST["description"];
+                            $img1 = $_FILES['img1'];
+                            $img2 = $_FILES['img2'];
+
+                            // Tableau des extensions de fichiers autorisées
+                            $permitted = array('jpg', 'jpeg', 'png', 'gif');
+
+                            // Traitement de l'image 1
+                            if (!empty($_FILES['img1']['name'])) {
+                                $img1_name = $_FILES['img1']['name'];
+                                $img1_size = $_FILES['img1']['size'];
+                                $img1_tmp = $_FILES['img1']['tmp_name'];
+
+                                $div1 = explode('.', $img1_name);
+                                $img1_ext = strtolower(end($div1));
+                                $unique_image1 = substr(md5(time()), 0, 10) . '.' . $img1_ext;
+                                $uploaded_image1 = "../../portfolio/assets/img/project/" . $unique_image1;
+
+                                move_uploaded_file($img1_tmp, $uploaded_image1);
+                            } else {
+                                $uploaded_image1 = "";
+                            }
+
+                            // Traitement de l'image 2
+                            if (!empty($_FILES['img2']['name'])) {
+                                $img2_name = $_FILES['img2']['name'];
+                                $img2_size = $_FILES['img2']['size'];
+                                $img2_tmp = $_FILES['img2']['tmp_name'];
+
+                                $div2 = explode('.', $img2_name);
+                                $img2_ext = strtolower(end($div2));
+                                $unique_image2 = substr(md5(time()), 0, 10) . '.' . $img2_ext;
+                                $uploaded_image2 = "../../portfolio/assets/img/project/" . $unique_image2;
+                                
+                                move_uploaded_file($img2_tmp, $uploaded_image2);
+                            } else {
+                                $uploaded_image2 = "";
+                            }
+
+                            // Vérification si tous les champs ont été remplis
+                            if (empty($title)) {
+                                echo "<script>alert('Veuillez remplir tous les champs !');</script>";
+                            } else {
+                                // Préparation de la requête SQL pour la mise à jour du projet
+                                $sql = "UPDATE project SET number='$number', title='$title', description='$description', img1='$uploaded_image1', img2='$uploaded_image2' WHERE id=$id";
+                                
+                                // Exécution de la requête SQL de mise à jour
+                                if (mysqli_query($conn, $sql)) {
+                                    echo "<script>alert('Le projet a été mis à jour avec succès !'); window.location.replace('../project.php');</script>";
+                                }
+                            }
+                        } 
+
+                        // Fermeture de la connexion à la base de données
+                        mysqli_close($conn);
+                    }
+
+                    ?>
+                    
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <label for="title">Titre du projet:</label><br>
+                            <input type="text" required="required" id="title" name="title" ><br><br>
+                            <label for="number">Projet n°:</label><br>
+                            <input type="number" required="required" id="number" name="number"><br><br>
+                            <label for="description">Description:</label><br>
+                            <textarea id="description" required="required" name="description"></textarea><br><br>
+                            <label for="img1">Lien vers l'image 1:</label><br>
+                            <input type="file" id="img1" name="img1"><br><br>
+                            <label for="img2">Lien vers l'image 2:</label><br>
+                            <input type="file" id="img2" name="img2"><br><br>
+                            <input type="submit" value="Modifier">
+                        </form>
+
+
 
                 </div>
                 <!-- /.container-fluid -->
@@ -238,7 +289,7 @@ include "../includes/config.php";
                 <div class="modal-body">Sélectionner "Se déconnecter" pour fermer la session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                    <a class="btn btn-primary" href="../index.php">Se déconnecter</a>
+                    <a class="btn btn-primary" href="../../index.php">Se déconnecter</a>
                 </div>
             </div>
         </div>
