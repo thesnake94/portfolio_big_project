@@ -233,32 +233,29 @@ include "includes/config.php";
 		</div>
 		<!-- Portfolio Grid Items-->
 		<div class="row justify-content-center">
-			<!-- Portfolio Item 1-->
-			<div class="col-md-6 col-lg-4 mb-5">
-				<h3 class="text-center text-white">Intro réseaux</h3>
-				<a class="portfolio-item mx-auto" href="project/project1.php">
-					<img class="img-fluid h-100 w-100"
-						src="portfolio/assets/img/project/porject intro systeme informatique.jpg"
-						alt="project intro système informatique" />
-				</a>
-			</div>
-			<!-- Portfolio Item 2-->
-			<div class="col-md-6 col-lg-4 mb-5">
-				<h3 class="text-center text-white">Intro algo Python</h3>
-				<a class="portfolio-item mx-auto" href="project/project2.php">
-					<img class="img-fluid h-100 w-100" src="portfolio/assets/img/project/project python.jpg"
-						alt="project algo python" />
-				</a>
-			</div>
-			<!-- Portfolio Item 3-->
-			<div class="col-md-6 col-lg-4 mb-5">
-				<h3 class="text-center text-white">Html/CSS/JS</h3>
+			<?php
+			// Exécution de la requête SQL
+			$sql = "SELECT id, img1, title FROM project LIMIT 3";
+			$result = mysqli_query($conn, $sql);
 
-				<a class="portfolio-item mx-auto" href="project/project3.php">
-					<img class="img-fluid h-100 w-100" src="portfolio/assets/img/project/project_html_css_js.png"
-						alt="project html css js" />
-				</a>
-			</div>
+			// Vérifier si des données ont été trouvées
+			if (mysqli_num_rows($result) > 0) {
+				// Afficher les données dans des td
+				while($row = mysqli_fetch_assoc($result)) {
+					// Affichage du projet dans le format requis
+					?>
+					<div class="col-md-6 col-lg-4 mb-5">
+						<h3 class="text-center text-white"><?php echo $row['title']; ?></h3>
+						<a class="portfolio-item mx-auto" href="project/project1.php?id=<?php echo $row['id']; ?>">
+							<img class="img-fluid h-100 w-100" src="/admin/<?php echo $row['img1']; ?>" alt="<?php echo $row['title']; ?>" />
+						</a>
+					</div>
+				<?php 
+				}
+			} 
+			// Fermeture de la connexion
+			mysqli_close($conn);
+			?>
 		</div>
 		<!-- Button -->
 		<div class="col-12 text-center">
