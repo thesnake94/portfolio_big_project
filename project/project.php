@@ -40,6 +40,8 @@ include "../includes/config.php";
 			rel="stylesheet"
 			type="text/css"
 		/>
+		<style>  body{background-image: url('portfolio/assets/img/background_bulle.gif');}</style>
+
 		<!-- Core theme CSS (includes Bootstrap)-->
 		<link href="../portfolio/css/styles.css" rel="stylesheet" />
 	</head>
