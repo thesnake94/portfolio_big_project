@@ -192,8 +192,7 @@ include "../includes/config.php";
                         } else {
                             $sql = "INSERT INTO project (title, number, description, img1, img2) VALUES ('$title', '$number', '$description', '$uploaded_image1', '$uploaded_image2')";
                             if (mysqli_query($conn, $sql)) {
-                                echo "<script>alert('Projet ajouté avec succès !');</script>";
-                                header('location:index.php');
+                                echo "<script>alert('Projet ajouté avec succès !'); window.location.replace('project.php'); </script>";
                             } else {
                                 echo "<script>alert('Erreur !');</script>";
                             }
