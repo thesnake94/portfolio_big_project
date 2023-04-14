@@ -117,7 +117,7 @@ include "../includes/config.php";
 				
 				<?php
 				// Exécution de la requête SQL
-				$sql = "SELECT img1, title FROM project";
+				$sql = "SELECT id, img1, title FROM project";
 				$result = mysqli_query($conn, $sql);
 
 				// Vérifier si des données ont été trouvées
@@ -128,8 +128,8 @@ include "../includes/config.php";
 						?>
 						<div class="col-md-6 col-lg-4 mb-5">
 							<h3 class="text-center text-white"><?php echo $row['title']; ?></h3>
-							<a class="portfolio-item mx-auto" href="project1.php">
-								<img class="img-fluid h-100 w-100" src="<?php echo $row['img1']; ?>" alt="<?php echo $row['title']; ?>" />
+							<a class="portfolio-item mx-auto" href="project1.php?id=<?php echo $row['id']; ?>">
+								<img class="img-fluid h-100 w-100" src="/admin/<?php echo $row['img1']; ?>" alt="<?php echo $row['title']; ?>" />
 							</a>
 						</div>
 					<?php 

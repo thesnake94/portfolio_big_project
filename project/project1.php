@@ -1,3 +1,7 @@
+<?php
+include "../includes/config.php";
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
@@ -78,10 +82,29 @@
 			</div>
 		</nav>
 
+
+		<?php  
+		// Vérification si l'id a été fourni dans l'URL
+		if (!isset($_GET['id'])) {
+			echo "Il y a une erreur quelque part";
+			exit();
+		}
+
+		$id = $_GET['id'];
+
+		// Exécution de la requête SQL
+		$sql = "SELECT * FROM project WHERE id=$id";
+		$result = mysqli_query($conn, $sql);
+
+		// Vérifier si des données ont été trouvées
+		if (mysqli_num_rows($result) > 0) {
+			// Afficher les données dans des td
+			while($row = mysqli_fetch_assoc($result)) {
+		?>
 		<header class="masthead text-white text-center bg-dark">
 			<div class="container d-flex align-items-center flex-column">
 				<!-- Masthead Heading-->
-				<h1 class="masthead-heading text-uppercase mb-0">INTRODUCTION RESEAUX</h1>
+				<h1 class="masthead-heading text-uppercase mb-0"><?php echo $row['title']; ?></h1>
 			</div>
 		</header>
 
@@ -95,16 +118,12 @@
 								<!-- Portfolio Modal - Image-->
 								<img
 									class="img-fluid rounded mb-5"
-									src="../portfolio/assets/img/project/porject intro systeme informatique.jpg"
+									src="<?php echo $row['img1']; ?>"
 									alt="..."
 								/>
 								<!-- Portfolio Modal - Text-->
 								<p class="mb-4">
-									Lorem ipsum dolor sit amet, consectetur adipisicing
-									elit. Mollitia neque assumenda ipsam nihil, molestias
-									magnam, recusandae quos quis inventore quisquam velit
-									asperiores, vitae? Reprehenderit soluta, eos quod
-									consequuntur itaque. Nam.
+								<?php echo $row['description']; ?>
 								</p>
 							</div>
 						</div>
@@ -112,6 +131,10 @@
 				</div>
 			</div>
 		</section>
+
+		<?php }}
+		mysqli_close($conn);
+		?>
 
 		<!-- Footer-->
 		<footer class="footer text-center">
