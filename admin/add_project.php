@@ -164,9 +164,9 @@ include "../includes/config.php";
                    
                     <form action="" method="POST">
                         <label for="title">Titre du projet:</label><br>
-                        <input type="text" id="title" name="title"><br><br>
+                        <input type="text" required="required" id="title" name="title"><br><br>
                         <label for="description">Description:</label><br>
-                        <textarea id="description" name="description"></textarea><br><br>
+                        <textarea id="description" required="required" name="description"></textarea><br><br>
                         <label for="img1">Lien vers l'image 1:</label><br>
                         <input type="text" id="img1" name="img1"><br><br>
                         <label for="img2">Lien vers l'image 2:</label><br>
