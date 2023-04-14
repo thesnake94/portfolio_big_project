@@ -1,4 +1,8 @@
-<!DOCTYPE php>
+<?php 
+include "../includes/config.php";
+?>
+
+<!DOCTYPE html>
 <php lang="fr">
 	<head>
 		<meta charset="utf-8" />
@@ -110,17 +114,31 @@
 				</div>
 				<!-- Portfolio Grid Items-->
 				<div class="row justify-content-center">
-					<!-- Portfolio Item 1-->
-					<div class="col-md-6 col-lg-4 mb-5">
-						<h3 class="text-center text-white">Intro réseaux</h3>
-						<a class="portfolio-item mx-auto" href="project1.php">
-							<img
-								class="img-fluid h-100 w-100"
-								src="../portfolio/assets/img/project/porject intro systeme informatique.jpg"
-								alt="project intro système informatique"
-							/>
-						</a>
-					</div>
+				
+				<?php
+				// Exécution de la requête SQL
+				$sql = "SELECT img1, title FROM project";
+				$result = mysqli_query($conn, $sql);
+
+				// Vérifier si des données ont été trouvées
+				if (mysqli_num_rows($result) > 0) {
+					// Afficher les données dans des td
+					while($row = mysqli_fetch_assoc($result)) {
+						// Affichage du projet dans le format requis
+						?>
+						<div class="col-md-6 col-lg-4 mb-5">
+							<h3 class="text-center text-white"><?php echo $row['title']; ?></h3>
+							<a class="portfolio-item mx-auto" href="project1.php">
+								<img class="img-fluid h-100 w-100" src="<?php echo $row['img1']; ?>" alt="<?php echo $row['title']; ?>" />
+							</a>
+						</div>
+					<?php 
+					}
+				} 
+				// Fermeture de la connexion
+				mysqli_close($conn);
+				?>
+
 					<!-- Portfolio Item 2-->
 					<div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="text-center text-white">Intro algo Python</h3>
@@ -195,7 +213,7 @@
 		</footer>
 		<!-- Copyright Section-->
 		<div class="copyright py-4 text-center text-white">
-		<div class="container"><a href="admin/login.php"><small>Copyright &copy; </a> ROMDHANE Dayen 2023</small></div>
+		<div class="container"><a href="../admin/login.php"><small>Copyright &copy; </a> ROMDHANE Dayen 2023</small></div>
 		</div>
 
 
