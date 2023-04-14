@@ -172,7 +172,7 @@ include "../includes/config.php";
                                             while($row = mysqli_fetch_assoc($result)) {
                                         
                                                 echo "<tr>";
-                                                echo "<td>" . $row['id'] . "</td>";
+                                                echo "<td>" . $row['number'] . "</td>";
                                                 echo "<td>" . $row['title'] . "</td>";
                                                 echo "<td>" . $row['description'] . "</td>";
                                                 echo "<td>" . $row['img1'] . "</td>";

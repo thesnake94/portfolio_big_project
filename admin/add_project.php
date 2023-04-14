@@ -145,32 +145,80 @@ include "../includes/config.php";
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // Récupérer les données du formulaire
                         $title = $_POST["title"];
+                        $number = $_POST["number"];
                         $description = $_POST["description"];
-                        $img1 = $_POST["img1"];
-                        $img2 = $_POST["img2"];
+                        $img1 = $_FILES['img1'];
+                        $img2 = $_FILES['img2'];
 
-                        $sql = "INSERT INTO project (title, description, img1, img2) VALUES ('$title', '$description', '$img1', '$img2')";
+                        $permitted = array('jpg', 'jpeg', 'png', 'gif');
 
-                        if (mysqli_query($conn, $sql)) {
-                            echo "Le projet a été ajouté avec succès.";
+                        // Traitement pour l'image 1
+                        if (!empty($_FILES['img1']['name'])) {
+                            $img1_name = $_FILES['img1']['name'];
+                            $img1_size = $_FILES['img1']['size'];
+                            $img1_tmp = $_FILES['img1']['tmp_name'];
+
+                            $div1 = explode('.', $img1_name);
+                            $img1_ext = strtolower(end($div1));
+                            $unique_image1 = substr(md5(time()), 0, 10) . '.' . $img1_ext;
+                            $uploaded_image1 = "../portfolio/assets/img/project/" . $unique_image1;
+
+                            move_uploaded_file($img1_tmp, $uploaded_image1);
                         } else {
-                            echo "Erreur: " . mysqli_error($conn);
+                            $uploaded_image1 = "";
+                        }
+
+
+                        // Traitement pour l'image 2
+                        if (!empty($_FILES['img2']['name'])) {
+                            $img2_name = $_FILES['img2']['name'];
+                            $img2_size = $_FILES['img2']['size'];
+                            $img2_tmp = $_FILES['img2']['tmp_name'];
+
+                            $div2 = explode('.', $img2_name);
+                            $img2_ext = strtolower(end($div2));
+                            $unique_image2 = substr(md5(time()), 0, 10) . '.' . $img2_ext;
+                            $uploaded_image2 = "../portfolio/assets/img/project/" . $unique_image2;
+                            
+                            move_uploaded_file($img2_tmp, $uploaded_image2);
+
+                        } else {
+                            $uploaded_image2 = "";
+                        }
+
+
+                        if (empty($title)) {
+                            echo "<script>alert('Veuillez entrer un titre !');</script>";
+                        } else {
+                            $sql = "INSERT INTO project (title, number, description, img1, img2) VALUES ('$title', '$number', '$description', '$uploaded_image1', '$uploaded_image2')";
+                            if (mysqli_query($conn, $sql)) {
+                                echo "<script>alert('Projet ajouté avec succès !');</script>";
+                                header('location:index.php');
+                            } else {
+                                echo "<script>alert('Erreur !');</script>";
+                            }
+    
                         }
 
                         mysqli_close($conn);
+
                     }
                     ?>
 
+
+
                    
-                    <form action="" method="POST">
+                    <form action="" method="POST" enctype="multipart/form-data">
                         <label for="title">Titre du projet:</label><br>
                         <input type="text" required="required" id="title" name="title"><br><br>
+                        <label for="number">Projet n°:</label><br>
+                        <input type="number" required="required" id="number" name="number"><br><br>
                         <label for="description">Description:</label><br>
                         <textarea id="description" required="required" name="description"></textarea><br><br>
                         <label for="img1">Lien vers l'image 1:</label><br>
-                        <input type="text" id="img1" name="img1"><br><br>
+                        <input type="file" id="img1" name="img1"><br><br>
                         <label for="img2">Lien vers l'image 2:</label><br>
-                        <input type="text" id="img2" name="img2"><br><br>
+                        <input type="file" id="img2" name="img2"><br><br>
                         <input type="submit" value="Ajouter">
                     </form>
                     
