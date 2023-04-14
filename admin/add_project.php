@@ -2,8 +2,6 @@
 
 include "../includes/config.php";
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -141,10 +139,30 @@ include "../includes/config.php";
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                        <h1 class="h3 mb-2 text-gray-800">Ajouter un projet</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Ajouter un projet</h1>
+                    <?php
+
+                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                        // Récupérer les données du formulaire
+                        $title = $_POST["title"];
+                        $description = $_POST["description"];
+                        $img1 = $_POST["img1"];
+                        $img2 = $_POST["img2"];
+
+                        $sql = "INSERT INTO project (title, description, img1, img2) VALUES ('$title', '$description', '$img1', '$img2')";
+
+                        if (mysqli_query($conn, $sql)) {
+                            echo "Le projet a été ajouté avec succès.";
+                        } else {
+                            echo "Erreur: " . mysqli_error($conn);
+                        }
+
+                        mysqli_close($conn);
+                    }
+                    ?>
 
                    
-                    <form action="insert_project.php" method="POST">
+                    <form action="" method="POST">
                         <label for="title">Titre du projet:</label><br>
                         <input type="text" id="title" name="title"><br><br>
                         <label for="description">Description:</label><br>
