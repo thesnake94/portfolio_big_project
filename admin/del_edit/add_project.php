@@ -1,6 +1,6 @@
 <?php
 
-include "../includes/config.php";
+include "../../includes/config.php";
 
 ?>
 
@@ -18,16 +18,16 @@ include "../includes/config.php";
     <title>Projects - Admin</title>
 
     <!-- Custom fonts for this template -->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom styles for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="../vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -39,7 +39,7 @@ include "../includes/config.php";
  <!-- Sidebar -->
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
         <div class="sidebar-brand-text mx-3">Admin</div>
     </a>
 
@@ -48,7 +48,7 @@ include "../includes/config.php";
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.php">
+        <a class="nav-link" href="../index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -67,7 +67,7 @@ include "../includes/config.php";
             data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Projets :</h6>
-                <a class="collapse-item" href="project.php">Voir tout</a>
+                <a class="collapse-item" href="../project.php">Voir tout</a>
                 <a class="collapse-item" href="add_project.php">Ajouter</a>
             </div>
         </div>
@@ -77,7 +77,7 @@ include "../includes/config.php";
 
     <!-- message -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="message.php">
+        <a class="nav-link collapsed" href="../message.php">
             <i class="fas fa-fw fa-envelope"></i>
             <span>Messages</span></a>
     </li>
@@ -161,7 +161,7 @@ include "../includes/config.php";
                             $div1 = explode('.', $img1_name);
                             $img1_ext = strtolower(end($div1));
                             $unique_image1 = substr(md5(time()), 0, 10) . '.' . $img1_ext;
-                            $uploaded_image1 = "../portfolio/assets/img/project/" . $unique_image1;
+                            $uploaded_image1 = "uploads/" . $unique_image1;
 
                             move_uploaded_file($img1_tmp, $uploaded_image1);
                         } else {
@@ -178,7 +178,7 @@ include "../includes/config.php";
                             $div2 = explode('.', $img2_name);
                             $img2_ext = strtolower(end($div2));
                             $unique_image2 = substr(md5(time()), 0, 10) . '.' . $img2_ext;
-                            $uploaded_image2 = "../portfolio/assets/img/project/" . $unique_image2;
+                            $uploaded_image2 = "uploads/" . $unique_image2;
                             
                             move_uploaded_file($img2_tmp, $uploaded_image2);
 
@@ -264,28 +264,28 @@ include "../includes/config.php";
                 <div class="modal-body">Sélectionner "Se déconnecter" pour fermer la session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Annuler</button>
-                    <a class="btn btn-primary" href="../index.php">Se déconnecter</a>
+                    <a class="btn btn-primary" href="../../index.php">Se déconnecter</a>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+    <script src="../js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="../js/demo/datatables-demo.js"></script>
 
 </body>
 

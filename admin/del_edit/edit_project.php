@@ -46,7 +46,7 @@ if (mysqli_connect_errno()) {
  <!-- Sidebar -->
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="../index.php">
         <div class="sidebar-brand-text mx-3">Admin</div>
     </a>
 
@@ -75,7 +75,7 @@ if (mysqli_connect_errno()) {
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Projets :</h6>
                 <a class="collapse-item" href="../project.php">Voir tout</a>
-                <a class="collapse-item" href="../add_project.php">Ajouter</a>
+                <a class="collapse-item" href="add_project.php">Ajouter</a>
             </div>
         </div>
     </li>
@@ -188,7 +188,7 @@ if (mysqli_connect_errno()) {
                                 $div1 = explode('.', $img1_name);
                                 $img1_ext = strtolower(end($div1));
                                 $unique_image1 = substr(md5(time()), 0, 10) . '.' . $img1_ext;
-                                $uploaded_image1 = "../../portfolio/assets/img/project/" . $unique_image1;
+                                $uploaded_image1 = "../uploads/" . $unique_image1;
 
                                 move_uploaded_file($img1_tmp, $uploaded_image1);
                             } else {
@@ -204,7 +204,7 @@ if (mysqli_connect_errno()) {
                                 $div2 = explode('.', $img2_name);
                                 $img2_ext = strtolower(end($div2));
                                 $unique_image2 = substr(md5(time()), 0, 10) . '.' . $img2_ext;
-                                $uploaded_image2 = "../../portfolio/assets/img/project/" . $unique_image2;
+                                $uploaded_image2 = "../uploads/" . $unique_image2;
                                 
                                 move_uploaded_file($img2_tmp, $uploaded_image2);
                             } else {
@@ -233,14 +233,22 @@ if (mysqli_connect_errno()) {
                     
                         <form action="" method="POST" enctype="multipart/form-data">
                             <label for="title">Titre du projet:</label><br>
-                            <input type="text" required="required" id="title" name="title" ><br><br>
+                            <input type="text" required="required" id="title" name="title" value="<?=$row['title']?>"><br><br>
                             <label for="number">Projet n°:</label><br>
-                            <input type="number" required="required" id="number" name="number"><br><br>
+                            <input type="number" required="required" id="number" name="number" value="<?=$row['number']?>"><br><br>
                             <label for="description">Description:</label><br>
-                            <textarea id="description" required="required" name="description"></textarea><br><br>
-                            <label for="img1">Lien vers l'image 1:</label><br>
+                            <textarea id="description" required="required" name="description"><?=$row['description']?></textarea><br><br>
+                            <?php if ($row['img1'] != '') { ?>
+                            <label>Image 1 :</label><br>
+                            <img src="<?=$row['img1']?>" width="200"><br><br>
+                            <?php } ?>
+                            <label for="img1">Changer l'image 1:</label><br>
                             <input type="file" id="img1" name="img1"><br><br>
-                            <label for="img2">Lien vers l'image 2:</label><br>
+                            <?php if ($row['img2'] != '') { ?>
+                                <label>Image 2 :</label><br>
+                                <img src="<?=$row['img2']?>" width="200"><br><br>
+                            <?php } ?>
+                            <label for="img2">Changer l'image 2:</label><br>
                             <input type="file" id="img2" name="img2"><br><br>
                             <input type="submit" value="Modifier">
                         </form>
