@@ -71,7 +71,6 @@ include "../includes/config.php";
                 <h6 class="collapse-header">Custom Projets :</h6>
                 <a class="collapse-item" href="project.php">Voir tout</a>
                 <a class="collapse-item" href="add_project.php">Ajouter</a>
-                <a class="collapse-item" href="project.php">Modifier</a>
             </div>
         </div>
     </li>
