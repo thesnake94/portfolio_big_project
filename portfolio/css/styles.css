@@ -2302,8 +2302,12 @@ html {
 }
 .portfolio-item {
   overflow: hidden;
-  height: 250px; /* ou toute autre valeur que vous souhaitez */
+  height: 250px; 
 
+}
+
+.project-item {
+  height: 250px; 
 }
 
 
@@ -2831,3 +2835,5 @@ textarea {
   margin-top:-4px;
   font-weight:700;
 }
+
+

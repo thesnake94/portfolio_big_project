@@ -58,7 +58,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Projets :</h6>
                         <a class="collapse-item" href="project.php">Voir tout</a>
-                        <a class="collapse-item" href="del_edit/add_project.php">Ajouter</a>
+                        <a class="collapse-item" href="add_project.php">Ajouter</a>
                     </div>
                 </div>
             </li>

@@ -19,10 +19,14 @@ include "../includes/config.php";
 		<title>Projets ROMDHANE Dayen</title>
 		<!-- Favicon-->
 		<link rel="icon" type="image/x-icon" href="../portfolio/assets/pdp moi png.png" />
+		<style>  body{background-image: url('../portfolio/assets/img/background_bulle.gif');}</style>
 		<link
 			rel="stylesheet"
 			href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 		/>
+		<!-- include bootstrap -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 		<!-- Font Awesome icons (free version)-->
 		<script
@@ -129,7 +133,7 @@ include "../includes/config.php";
 						<div class="col-md-6 col-lg-4 mb-5">
 							<h3 class="text-center text-white"><?php echo $row['title']; ?></h3>
 							<a class="portfolio-item mx-auto" href="project1.php?id=<?php echo $row['id']; ?>">
-								<img class="img-fluid h-100 w-100" src="/admin/<?php echo $row['img1']; ?>" alt="<?php echo $row['title']; ?>" />
+								<img class="img-fluid h-100 w-100" src="<?php echo $row['img1']; ?>" alt="<?php echo $row['title']; ?>" />
 							</a>
 						</div>
 					<?php 
@@ -142,7 +146,7 @@ include "../includes/config.php";
 					<!-- Portfolio Item 2-->
 					<div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="text-center text-white">Intro algo Python</h3>
-						<a class="portfolio-item mx-auto" href="project2.php">
+						<a class="portfolio-item mx-auto" href="project1.php">
 							<img
 								class="img-fluid h-100 w-100"
 								src="../portfolio/assets/img/project/project python.jpg"
@@ -154,7 +158,7 @@ include "../includes/config.php";
 					<div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="text-center text-white">Html/CSS/JS</h3>
 
-						<a class="portfolio-item mx-auto" href="project3.php">
+						<a class="portfolio-item mx-auto" href="project1.php">
 							<img
 								class="img-fluid h-100 w-100"
 								src="../portfolio/assets/img/project/project_html_css_js.png"

@@ -3,7 +3,7 @@ include "../includes/config.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
 
@@ -11,7 +11,7 @@ include "../includes/config.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Dayen">
 
     <title>Projects - Admin</title>
 
@@ -66,7 +66,7 @@ include "../includes/config.php";
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Projets :</h6>
                 <a class="collapse-item" href="project.php">Voir tout</a>
-                <a class="collapse-item" href="del_edit/add_project.php">Ajouter</a>
+                <a class="collapse-item" href="add_project.php">Ajouter</a>
             </div>
         </div>
     </li>
@@ -139,7 +139,7 @@ include "../includes/config.php";
 
                     <div class="d-flex justify-content-between align-items-center">
                         <h1 class="h3 mb-2 text-gray-800">Tous les projets</h1>
-                        <a href="del_edit/add_project.php" class="btn btn-primary float-right">Ajouter un projet</a>
+                        <a href="add_project.php" class="btn btn-primary float-right">Ajouter un projet</a>
                     </div>
                    
 

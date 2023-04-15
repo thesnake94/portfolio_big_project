@@ -24,9 +24,10 @@ include "includes/config.php";
 		type="text/css" />
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="portfolio/css/styles.css" rel="stylesheet" />
+	<style>  body{background-image: url('portfolio/assets/img/background_bulle.gif');}</style>
 </head>
 
-<body  class="bg-info" id="page-top">
+<body   id="page-top">
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg text-uppercase fixed-top shadow-lg" id="mainNav">
 		<div class="container">
@@ -305,9 +306,6 @@ include "includes/config.php";
 
 			}
 			  
-			
-
-			
 			?>
 			
 			<form method="POST">      
