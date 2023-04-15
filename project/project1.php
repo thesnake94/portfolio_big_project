@@ -110,15 +110,18 @@ include "../includes/config.php";
 
 		<!-- Projets Section-->
 		<section class="page-section portfolio bg-dark" id="projet">
-			<div class="container">
 				<div class="modal-body text-center text-white pb-5">
-					<div class="container">
 						<div class="row justify-content-center">
 							<div class="col-lg-8">								
 								<!-- Portfolio Modal - Image-->
 								<img
-									class="img-fluid rounded mb-5"
+									class="img-fluid rounded mb-5 project-item h-10 w-10"
 									src="<?php echo $row['img1']; ?>"
+									alt="..."
+								/></br>
+								<img
+									class="img-fluid rounded mb-5 project-item"
+									src="<?php echo $row['img2']; ?>"
 									alt="..."
 								/>
 								<!-- Portfolio Modal - Text-->
@@ -127,9 +130,7 @@ include "../includes/config.php";
 								</p>
 							</div>
 						</div>
-					</div>
 				</div>
-			</div>
 		</section>
 
 		<?php }}
