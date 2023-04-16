@@ -25,6 +25,7 @@ include "includes/config.php";
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="portfolio/css/styles.css" rel="stylesheet" />
 	<style>  body{background-image: url('portfolio/assets/img/background_bulle.gif');}</style>
+
 </head>
 
 <body   id="page-top">
