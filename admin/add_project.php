@@ -1,7 +1,8 @@
 <?php
 
 include "../includes/config.php";
-
+include "../includes/database.php";
+$db = new Database();
 ?>
 
 <!DOCTYPE html>
@@ -144,9 +145,9 @@ include "../includes/config.php";
 
                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         // Récupérer les données du formulaire
-                        $title = $_POST["title"];
-                        $number = $_POST["number"];
-                        $description = $_POST["description"];
+                        $title = mysqli_real_escape_string($db->link, $_POST["title"]);
+                        $number = mysqli_real_escape_string($db->link, $_POST["number"]);
+                        $description = mysqli_real_escape_string($db->link, $_POST["description"]);
                         $img1 = $_FILES['img1'];
                         $img2 = $_FILES['img2'];
 

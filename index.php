@@ -1,5 +1,8 @@
 <?php
 include "includes/config.php";
+include "includes/database.php";
+$db = new Database();
+
 ?>
 
 <!DOCTYPE html>
@@ -286,30 +289,28 @@ include "includes/config.php";
 			<?php 
 			// Récupération des données soumises par le formulaire
 			if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['message'])) {
-				$nom = $_POST['nom'];
-				$prenom = $_POST['prenom'];
-				$email = $_POST['email'];
-				$message = $_POST['message'];
+				$nom = mysqli_real_escape_string($db->link, $_POST['nom']);
+				$prenom = mysqli_real_escape_string($db->link, $_POST['prenom']);
+				$email = mysqli_real_escape_string($db->link, $_POST['email']);
+				$message = mysqli_real_escape_string($db->link, $_POST['message']);
 
 
 				// Préparation de la requête SQL d'insertion
 				$sql = "INSERT INTO contact (nom, prenom, email, message) VALUES ('$nom', '$prenom', '$email', '$message')";
 
 				// Exécution de la requête SQL
-				if ($conn->query($sql) === TRUE) {
+				if (mysqli_query($db->link, $sql)) {
 					echo "<script>alert('Votre message a été envoyé avec succès !');</script>";
 				} else {
-					echo "Erreur d'insertion de données: " . $conn->error;
+					echo "Erreur lors de l'envoi du formulaire: " . $db->link->error;
 				}
-
-				// Fermeture de la connexion à la base de données
-				$conn->close();
-
+				mysqli_close($db->link);
+				
 			}
 			  
 			?>
 			
-			<form method="POST">      
+			<form method="POST" >      
 				<input name="nom" type="text" class="feedback-input" placeholder="Nom" required="required" data-error="Nom est obligatoire." />   
 				<input name="prenom" type="text" class="feedback-input" placeholder="Prénom" required="required" data-error="Prénom est obligatoire." />   
 				<input name="email" type="email" class="feedback-input" placeholder="Email" required="required" data-error="Un email valid est obligatoire." />
