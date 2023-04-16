@@ -177,7 +177,7 @@ include "../includes/config.php";
                                                 echo "<td>" . $row['description'] . "</td>";
                                                 echo "<td>" . $row['img1'] . "</td>";
                                                 echo "<td>" . $row['img2'] . "</td>";
-                                                echo '<td><a href="del_edit/edit_project.php?id=' . $row['id'] . '">Modifier</a></td>';
+                                                echo '<td><a href="edit_project.php?id=' . $row['id'] . '">Modifier</a></td>';
                                                 echo '<td><a onclick="return confirm(\'Etes vous sur de vouloir supprimer ?\')" href="del_edit/delete_project.php?id=' . $row['id'] . '">Supprimer</a></td>';
                                                 echo "<tr>";
                                             
