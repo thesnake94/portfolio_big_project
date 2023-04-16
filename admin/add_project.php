@@ -219,6 +219,7 @@ include "../includes/config.php";
                         <label for="img2">Lien vers l'image 2:</label><br>
                         <input type="file" id="img2" name="img2"><br><br>
                         <input type="submit" value="Ajouter">
+                        <a href="project.php">Annuler</a>
                     </form>
                     
 
