@@ -142,7 +142,7 @@ include "../includes/config.php";
 									</div>
 									<div class="col-lg-4 me-auto">
 										<p class="lead">
-											Veuillez trouver le lien du github ci dessous : </br></br>
+											Veuillez trouver le lien github du projet ci dessous : </br></br>
 											<?php if($row['link'] != ''){ ?>
 												<a class="btn btn-outline-light btn-social mx-1" href="<?=$row['link'];?>" target="_blank"><i class="fab fa-fw fa-github"></i></a>
 											<?php } else { ?>
@@ -157,7 +157,10 @@ include "../includes/config.php";
 		</section>
 		
 
-		<?php }}
+		<?php }}else {
+			header("Location: error.php");
+	}
+
 		mysqli_close($conn);
 		?>
 

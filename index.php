@@ -411,7 +411,7 @@ $db = new Database();
 	</footer>
 	<!-- Copyright Section-->
 	<div class="copyright py-4 text-center text-white">
-		<div class="container"><a href="admin/login.php"><small>Copyright </a> &copy;  ROMDHANE Dayen 2023</small></div>
+		<div class="container"><a href="admin/login.php" style="text-decoration: none; color: white;"><small>Copyright </a> &copy;  ROMDHANE Dayen 2023</small></div>
 	</div>
 
 

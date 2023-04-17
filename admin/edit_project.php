@@ -241,13 +241,13 @@ if (!isset($_SESSION['user_id'])) {
                                 <input type="text" id="title" name="link" value="<?=$row['link']?>"><br><br>
                                 <?php if ($row['img1'] != '') { ?>
                                 <label>Image 1 :</label><br>
-                                <img src="<?=$row['img1']?>" width="200" alt="img2 dans la db"><br><br>
+                                <img src="<?=$row['img1']?>" width="200" alt="img1"><br><br>
                                 <?php } ?>
                                 <label for="img1">Changer l'image 1:</label><br>
                                 <input type="file" id="img1" name="img1"><br><br>
                                 <?php if ($row['img2'] != '') { ?>
                                     <label>Image 2 :</label><br>
-                                    <img src="<?=$row['img2']?>" width="200" alt="img2 dans la db"><br><br>
+                                    <img src="<?=$row['img2']?>" width="200" alt="img"><br><br>
                                 <?php } ?>
                                 <label for="img2">Changer l'image 2:</label><br>
                                 <input type="file" id="img2" name="img2"><br><br>

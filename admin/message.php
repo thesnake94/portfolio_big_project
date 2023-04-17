@@ -179,7 +179,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 echo "<td>" . $row['prenom'] . "</td>";
                                                 echo "<td>" . $row['email'] . "</td>";
                                                 echo "<td>" . $row['message'] . "</td>"; 
-                                                echo "<td>" . $row['message'] . "</td>"; 
+                                                echo "<td><a href='mailto:" . $row['email'] . "'>Répondre</a></td>"; 
                                                 echo "<td><a href='del_edit/delete_msg.php?id=" . $row['id'] . "' onclick=\"return confirm('Etes vous sur de vouloir supprimer ?')\">Supprimer</a></td>";
                                                 echo "<tr>";
                                             
