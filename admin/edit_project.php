@@ -169,17 +169,17 @@ if (mysqli_connect_errno()) {
 
                         // Vérification si le formulaire a été soumis
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
                             // Récupération des données du formulaire
                             $title = $_POST["title"];
                             $number = $_POST["number"];
                             $description = $_POST["description"];
-                            $img1 = $_FILES['img1'];
-                            $img2 = $_FILES['img2'];
+                            
+                            // Vérification si des images existent déjà dans la base de données
+                            $img1_in_db = $row['img1'];
+                            $img2_in_db = $row['img2'];
 
-                            // Tableau des extensions de fichiers autorisées
-                            $permitted = array('jpg', 'jpeg', 'png', 'gif');
-
-                            // Traitement de l'image 1
+                            // Vérification si des images ont été téléchargées
                             if (!empty($_FILES['img1']['name'])) {
                                 $img1_name = $_FILES['img1']['name'];
                                 $img1_size = $_FILES['img1']['size'];
@@ -192,10 +192,9 @@ if (mysqli_connect_errno()) {
 
                                 move_uploaded_file($img1_tmp, $uploaded_image1);
                             } else {
-                                $uploaded_image1 = "";
+                                $uploaded_image1 = $img1_in_db;
                             }
 
-                            // Traitement de l'image 2
                             if (!empty($_FILES['img2']['name'])) {
                                 $img2_name = $_FILES['img2']['name'];
                                 $img2_size = $_FILES['img2']['size'];
@@ -205,10 +204,10 @@ if (mysqli_connect_errno()) {
                                 $img2_ext = strtolower(end($div2));
                                 $unique_image2 = substr(md5(time()), 0, 10) . '.' . $img2_ext;
                                 $uploaded_image2 = "../uploads/" . $unique_image2;
-                                
+
                                 move_uploaded_file($img2_tmp, $uploaded_image2);
                             } else {
-                                $uploaded_image2 = "";
+                                $uploaded_image2 = $img2_in_db;
                             }
 
                             // Vérification si tous les champs ont été remplis
@@ -217,7 +216,7 @@ if (mysqli_connect_errno()) {
                             } else {
                                 // Préparation de la requête SQL pour la mise à jour du projet
                                 $sql = "UPDATE project SET number='$number', title='$title', description='$description', img1='$uploaded_image1', img2='$uploaded_image2' WHERE id=$id";
-                                
+
                                 // Exécution de la requête SQL de mise à jour
                                 if (mysqli_query($conn, $sql)) {
                                     echo "<script>alert('Le projet a été mis à jour avec succès !'); window.location.replace('project.php');</script>";
@@ -231,28 +230,28 @@ if (mysqli_connect_errno()) {
 
                     ?>
                     
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <label for="title">Titre du projet:</label><br>
-                            <input type="text" required="required" id="title" name="title" value="<?=$row['title']?>"><br><br>
-                            <label for="number">Projet n°:</label><br>
-                            <input type="number" required="required" id="number" name="number" value="<?=$row['number']?>"><br><br>
-                            <label for="description">Description:</label><br>
-                            <textarea id="description" required="required" name="description"><?=$row['description']?></textarea><br><br>
-                            <?php if ($row['img1'] != '') { ?>
-                            <label>Image 1 :</label><br>
-                            <img src="<?=$row['img1']?>" width="200"><br><br>
-                            <?php } ?>
-                            <label for="img1">Changer l'image 1:</label><br>
-                            <input type="file" id="img1" name="img1"><br><br>
-                            <?php if ($row['img2'] != '') { ?>
-                                <label>Image 2 :</label><br>
-                                <img src="<?=$row['img2']?>" width="200"><br><br>
-                            <?php } ?>
-                            <label for="img2">Changer l'image 2:</label><br>
-                            <input type="file" id="img2" name="img2"><br><br>
-                            <input type="submit" value="Modifier">
-                            <a href="project.php">Annuler</a>
-                        </form>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <label for="title">Titre du projet:</label><br>
+                        <input type="text" required="required" id="title" name="title" value="<?=$row['title']?>"><br><br>
+                        <label for="number">Projet n°:</label><br>
+                        <input type="number" required="required" id="number" name="number" value="<?=$row['number']?>"><br><br>
+                        <label for="description">Description:</label><br>
+                        <textarea id="description" required="required" name="description"><?=$row['description']?></textarea><br><br>
+                        <?php if ($row['img1'] != '') { ?>
+                        <label>Image 1 :</label><br>
+                        <img src="<?=$row['img1']?>" width="200"><br><br>
+                        <?php } ?>
+                        <label for="img1">Changer l'image 1:</label><br>
+                        <input type="file" id="img1" name="img1"><br><br>
+                        <?php if ($row['img2'] != '') { ?>
+                            <label>Image 2 :</label><br>
+                            <img src="<?=$row['img2']?>" width="200"><br><br>
+                        <?php } ?>
+                        <label for="img2">Changer l'image 2:</label><br>
+                        <input type="file" id="img2" name="img2"><br><br>
+                        <input type="submit" value="Modifier">
+                        <a href="project.php">Annuler</a>
+                    </form>
 
 
 
