@@ -1,14 +1,8 @@
 <?php
-
-// Connexion à la base de données
-$conn = mysqli_connect("localhost", "root", "", "portfolio");
-
-// Vérifier la connexion
-if (mysqli_connect_errno()) {
-    // Erreur de connexion à la base de données
-    echo "Erreur de connexion à la base de données: " . mysqli_connect_error();
-    exit();
-}
+include '../includes/config.php';
+include '../includes/database.php';
+// Inclure la variable $db = new Database();
+$db = new Database();
 ?>
 
 <!DOCTYPE html>
@@ -167,13 +161,10 @@ if (mysqli_connect_errno()) {
                         // Récupération des données existantes du projet
                         $row = mysqli_fetch_assoc($result);
 
-                        // Vérification si le formulaire a été soumis
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-                            // Récupération des données du formulaire
-                            $title = $_POST["title"];
-                            $number = $_POST["number"];
-                            $description = $_POST["description"];
+                            $title = mysqli_real_escape_string($db->link, $_POST["title"]);
+                            $number = mysqli_real_escape_string($db->link, $_POST["number"]);
+                            $description = mysqli_real_escape_string($db->link, $_POST["description"]);
                             
                             // Vérification si des images existent déjà dans la base de données
                             $img1_in_db = $row['img1'];
