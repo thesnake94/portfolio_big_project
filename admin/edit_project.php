@@ -3,6 +3,13 @@ include '../includes/config.php';
 include '../includes/database.php';
 // Inclure la variable $db = new Database();
 $db = new Database();
+
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
