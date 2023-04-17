@@ -117,18 +117,21 @@ include "../includes/config.php";
 				<div class="modal-body text-center text-white pb-5">
 						<div class="row justify-content-center">
 							<div class="col-lg-8">								
-								<!-- Portfolio Modal - Image-->
-								<img
-									class="img-fluid rounded mb-5 project-item h-10 w-10"
-									src="<?php echo $row['img1']; ?>"
-									alt="..."
-								/></br>
-								<img
-									class="img-fluid rounded mb-5 project-item"
-									src="<?php echo $row['img2']; ?>"
-									alt="..."
-								/>
-								<!-- Portfolio Modal - Text-->
+								<!-- Portfolio Modal - Image--><?php
+								if ($row['img1'] != '') {
+										echo '<img class="img-fluid rounded mb-5 project-item h-10 w-10"
+										src="' . $row['img1'] . '" alt=""> </br>';
+									} else {
+										echo '';
+								}
+								if ($row['img2'] != '') {
+									echo '<img class="img-fluid rounded mb-5 project-item h-10 w-10"
+									src="' . $row['img2'] . '" alt=""> </br>';
+								} else {
+									echo '';
+								}
+								?>
+								<!-- dexcription project Text-->
 								<p class="mb-4">
 								<?php echo $row['description']; ?>
 								</p>
