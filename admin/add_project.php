@@ -154,6 +154,8 @@ if (!isset($_SESSION['user_id'])) {
                         $title = mysqli_real_escape_string($db->link, $_POST["title"]);
                         $number = mysqli_real_escape_string($db->link, $_POST["number"]);
                         $description = mysqli_real_escape_string($db->link, $_POST["description"]);
+                        $link = mysqli_real_escape_string($db->link, $_POST["link"]);
+
                         $img1 = $_FILES['img1'];
                         $img2 = $_FILES['img2'];
 
@@ -197,7 +199,7 @@ if (!isset($_SESSION['user_id'])) {
                         if (empty($title)) {
                             echo "<script>alert('Veuillez entrer un titre !');</script>";
                         } else {
-                            $sql = "INSERT INTO project (title, number, description, img1, img2) VALUES ('$title', '$number', '$description', '$uploaded_image1', '$uploaded_image2')";
+                            $sql = "INSERT INTO project (title, number, description, link, img1, img2) VALUES ('$title', '$number', '$description', '$link', '$uploaded_image1', '$uploaded_image2')";
                             if (mysqli_query($conn, $sql)) {
                                 echo "<script>alert('Projet ajouté avec succès !'); window.location.replace('project.php'); </script>";
                             } else {
@@ -221,6 +223,8 @@ if (!isset($_SESSION['user_id'])) {
                         <input type="number" required="required" id="number" name="number"><br><br>
                         <label for="description">Description:</label><br>
                         <textarea id="description" required="required" name="description"></textarea><br><br>
+                        <label for="link">Lien github du projet:</label><br>
+                        <input type="text" id="title" name="link" ><br><br>
                         <label for="img1">Lien vers l'image 1:</label><br>
                         <input type="file" id="img1" name="img1"><br><br>
                         <label for="img2">Lien vers l'image 2:</label><br>

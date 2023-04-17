@@ -159,6 +159,7 @@ if (!isset($_SESSION['user_id'])) {
                                             <th>Numéro</th>
                                             <th>Projet</th>
                                             <th>Description</th>
+                                            <th>Lien github</th>
                                             <th>Image 1</th>
                                             <th>Image 2</th>
                                             <th>Modifier</th>
@@ -181,6 +182,10 @@ if (!isset($_SESSION['user_id'])) {
                                                 echo "<td>" . $row['number'] . "</td>";
                                                 echo "<td>" . $row['title'] . "</td>";
                                                 echo "<td>" . $row['description'] . "</td>"; 
+                                                ?>
+                                                
+                                                <td><a class="btn btn-primary btn-outline-light mx-1" href="<?=$row['link']?>" target="_blank"><i class="fab fa-fw fa-github"></i></a></td>
+                                                <?php
                                                 echo "<td>";
                                                 if ($row['img1'] != '') {
                                                     echo '<img src="' . $row['img1'] . '" width="200" alt="">';

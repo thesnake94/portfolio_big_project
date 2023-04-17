@@ -142,7 +142,9 @@ include "../includes/config.php";
 									</div>
 									<div class="col-lg-4 me-auto">
 										<p class="lead">
-											Veuillez trouver le lien du github ci dessous : </br>
+											Veuillez trouver le lien du github ci dessous : </br></br>
+										<a class="btn btn-outline-light btn-social mx-1" href="<?=$row['link'];?>" target="_blank"><i class="fab fa-fw fa-github"></i></a>
+
 										</p>
 									</div>
 								</div>

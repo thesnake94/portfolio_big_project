@@ -172,6 +172,8 @@ if (!isset($_SESSION['user_id'])) {
                             $title = mysqli_real_escape_string($db->link, $_POST["title"]);
                             $number = mysqli_real_escape_string($db->link, $_POST["number"]);
                             $description = mysqli_real_escape_string($db->link, $_POST["description"]);
+                            $link = mysqli_real_escape_string($db->link, $_POST["link"]);
+
                             
                             // Vérification si des images existent déjà dans la base de données
                             $img1_in_db = $row['img1'];
@@ -213,7 +215,7 @@ if (!isset($_SESSION['user_id'])) {
                                 echo "<script>alert('Veuillez remplir tous les champs !');</script>";
                             } else {
                                 // Préparation de la requête SQL pour la mise à jour du projet
-                                $sql = "UPDATE project SET number='$number', title='$title', description='$description', img1='$uploaded_image1', img2='$uploaded_image2' WHERE id=$id";
+                                $sql = "UPDATE project SET number='$number', title='$title', description='$description', link='$link', img1='$uploaded_image1', img2='$uploaded_image2' WHERE id=$id";
 
                                 // Exécution de la requête SQL de mise à jour
                                 if (mysqli_query($conn, $sql)) {
@@ -235,6 +237,8 @@ if (!isset($_SESSION['user_id'])) {
                                 <input type="number" required="required" id="number" name="number" value="<?=$row['number']?>"><br><br>
                                 <label for="description">Description:</label><br>
                                 <textarea id="description" required="required" name="description"><?=$row['description']?></textarea><br><br>
+                                <label for="link">Lien github du projet:</label><br>
+                                <input type="text" id="title" name="link" value="<?=$row['link']?>"><br><br>
                                 <?php if ($row['img1'] != '') { ?>
                                 <label>Image 1 :</label><br>
                                 <img src="<?=$row['img1']?>" width="200" alt="img2 dans la db"><br><br>
