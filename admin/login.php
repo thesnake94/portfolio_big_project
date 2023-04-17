@@ -1,19 +1,14 @@
-
 <?php
-include '../includes/config.php';
-include '../includes/database.php';
-// Inclure la variable $db = new Database();
-$db = new Database();
-
-// Connexion à la base de données
-$conn = mysqli_connect("localhost", "root", "", "portfolio");
-
-// Vérifier la connexion
-if (mysqli_connect_errno()) {
-    // Erreur de connexion à la base de données
-    echo "Erreur de connexion à la base de données: " . mysqli_connect_error();
+session_start();
+if (isset($_SESSION['user_id'])) {
+    header('Location: index.php');
     exit();
 }
+
+include '../includes/config.php';
+include '../includes/database.php';
+$db = new Database();
+
 
 
 // Vérification des identifiants
@@ -22,23 +17,36 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $password = mysqli_real_escape_string($db->link, $_POST['password']);
 
     // Préparer la requête SQL
-    $stmt = $conn->prepare("SELECT * FROM user WHERE username=? AND password=?");
-    $stmt->bind_param("ss", $username, $password);
+    $stmt = $conn->prepare("SELECT * FROM user WHERE username=?");
+    $stmt->bind_param("s", $username);
     $stmt->execute();
 
     // Récupérer le résultat de la requête
     $result = $stmt->get_result();
 
     if (mysqli_num_rows($result) == 1) {
-        // Identifiants corrects, redirection vers la page d'accueil
-        header("Location: index.php");
-        exit();
+        // Récupérer le mot de passe hashé de l'utilisateur
+        $user = mysqli_fetch_assoc($result);
+        $hash = $user['password'];
+
+        // Vérifier que le mot de passe entré par l'utilisateur correspond au mot de passe hashé stocké dans la base de données
+        if (password_verify($password, $hash)) {
+            // Identifiants corrects, stocker l'ID utilisateur dans une variable de session et redirection vers la page d'accueil
+            $_SESSION['user_id'] = $user['id'];
+            header("Location: index.php");
+            exit();
+        } else {
+            // Identifiants incorrects, affichage d'un message d'erreur
+            $error_message = "Identifiants incorrects";
+        }
     } else {
         // Identifiants incorrects, affichage d'un message d'erreur
         $error_message = "Identifiants incorrects";
     }
 }
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -96,6 +104,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                                         <?php if (isset($error_message)) { ?>
                                         <div class="alert alert-danger mt-3" role="alert"><?php echo $error_message; ?></div>
                                         <?php } ?>
+                                        <a href="../index.php" class="btn btn-user btn-block">Retour au portfolio</a>
                                     </form>
                                 </div>
                             </div>
