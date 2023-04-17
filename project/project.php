@@ -144,30 +144,6 @@ include "../includes/config.php";
 				// Fermeture de la connexion
 				mysqli_close($conn);
 				?>
-
-					<!-- Portfolio Item 2-->
-					<div class="col-md-6 col-lg-4 mb-5">
-						<h3 class="text-center text-white">Intro algo Python</h3>
-						<a class="portfolio-item mx-auto" href="project1.php">
-							<img
-								class="img-fluid h-100 w-100"
-								src="../portfolio/assets/img/project/project python.jpg"
-								alt="project algo python"
-							/>
-						</a>
-					</div>
-					<!-- Portfolio Item 3-->
-					<div class="col-md-6 col-lg-4 mb-5">
-						<h3 class="text-center text-white">Html/CSS/JS</h3>
-
-						<a class="portfolio-item mx-auto" href="project1.php">
-							<img
-								class="img-fluid h-100 w-100"
-								src="../portfolio/assets/img/project/project_html_css_js.png"
-								alt="project php css js"
-							/>
-						</a>
-					</div>
 				</div>
 			</div>
 		</section>

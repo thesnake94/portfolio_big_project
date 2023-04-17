@@ -132,13 +132,25 @@ include "../includes/config.php";
 								}
 								?>
 								<!-- dexcription project Text-->
-								<p class="mb-4">
-								<?php echo $row['description']; ?>
-								</p>
+								<div class="row">
+									<div class="col-lg-4 ms-auto">
+										<p class="lead1">
+										<?php echo $row['description']; ?>
+											<br />
+
+										</p>
+									</div>
+									<div class="col-lg-4 me-auto">
+										<p class="lead">
+											Veuillez trouver le lien du github ci dessous : </br>
+										</p>
+									</div>
+								</div>
 							</div>
 						</div>
 				</div>
 		</section>
+		
 
 		<?php }}
 		mysqli_close($conn);
