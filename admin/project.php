@@ -174,14 +174,26 @@ include "../includes/config.php";
                                                 echo "<tr>";
                                                 echo "<td>" . $row['number'] . "</td>";
                                                 echo "<td>" . $row['title'] . "</td>";
-                                                echo "<td>" . $row['description'] . "</td>";
-                                                echo "<td>" . $row['img1'] . "</td>";
-                                                echo "<td>" . $row['img2'] . "</td>";
+                                                echo "<td>" . $row['description'] . "</td>"; 
+                                                echo "<td>";
+                                                if ($row['img1'] != '') {
+                                                    echo '<img src="' . $row['img1'] . '" width="200" alt="">';
+                                                } else {
+                                                    echo 'pas d\'image';
+                                                }
+                                                echo "</td>";
+                                                echo "<td>";
+                                                if ($row['img2'] != '') {
+                                                    echo '<img src="' . $row['img2'] . '" width="200" alt="">';
+                                                } else {
+                                                    echo 'pas d\'image';
+                                                }
+                                                echo "</td>";
                                                 echo '<td><a href="edit_project.php?id=' . $row['id'] . '">Modifier</a></td>';
                                                 echo '<td><a onclick="return confirm(\'Etes vous sur de vouloir supprimer ?\')" href="del_edit/delete_project.php?id=' . $row['id'] . '">Supprimer</a></td>';
                                                 echo "<tr>";
                                             
-                                            }
+                                                }
                                             } else {
                                                 // Aucune donnée trouvée dans la table
                                                 echo "Aucun projet trouvé dans la base de données.";

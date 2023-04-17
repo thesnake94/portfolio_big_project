@@ -229,29 +229,29 @@ if (mysqli_connect_errno()) {
                     }
 
                     ?>
-                    
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        <label for="title">Titre du projet:</label><br>
-                        <input type="text" required="required" id="title" name="title" value="<?=$row['title']?>"><br><br>
-                        <label for="number">Projet n°:</label><br>
-                        <input type="number" required="required" id="number" name="number" value="<?=$row['number']?>"><br><br>
-                        <label for="description">Description:</label><br>
-                        <textarea id="description" required="required" name="description"><?=$row['description']?></textarea><br><br>
-                        <?php if ($row['img1'] != '') { ?>
-                        <label>Image 1 :</label><br>
-                        <img src="<?=$row['img1']?>" width="200"><br><br>
-                        <?php } ?>
-                        <label for="img1">Changer l'image 1:</label><br>
-                        <input type="file" id="img1" name="img1"><br><br>
-                        <?php if ($row['img2'] != '') { ?>
-                            <label>Image 2 :</label><br>
-                            <img src="<?=$row['img2']?>" width="200"><br><br>
-                        <?php } ?>
-                        <label for="img2">Changer l'image 2:</label><br>
-                        <input type="file" id="img2" name="img2"><br><br>
-                        <input type="submit" value="Modifier">
-                        <a href="project.php">Annuler</a>
-                    </form>
+
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <label for="title">Titre du projet:</label><br>
+                                <input type="text" required="required" id="title" name="title" value="<?=$row['title']?>"><br><br>
+                                <label for="number">Projet n°:</label><br>
+                                <input type="number" required="required" id="number" name="number" value="<?=$row['number']?>"><br><br>
+                                <label for="description">Description:</label><br>
+                                <textarea id="description" required="required" name="description"><?=$row['description']?></textarea><br><br>
+                                <?php if ($row['img1'] != '') { ?>
+                                <label>Image 1 :</label><br>
+                                <img src="<?=$row['img1']?>" width="200" alt="img2 dans la db"><br><br>
+                                <?php } ?>
+                                <label for="img1">Changer l'image 1:</label><br>
+                                <input type="file" id="img1" name="img1"><br><br>
+                                <?php if ($row['img2'] != '') { ?>
+                                    <label>Image 2 :</label><br>
+                                    <img src="<?=$row['img2']?>" width="200" alt="img2 dans la db"><br><br>
+                                <?php } ?>
+                                <label for="img2">Changer l'image 2:</label><br>
+                                <input type="file" id="img2" name="img2"><br><br>
+                                <input type="submit" value="Modifier">
+                                <a href="project.php">Annuler</a>
+                            </form>
 
 
 
