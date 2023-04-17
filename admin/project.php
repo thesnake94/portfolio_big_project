@@ -184,8 +184,11 @@ if (!isset($_SESSION['user_id'])) {
                                                 echo "<td>" . $row['description'] . "</td>"; 
                                                 ?>
                                                 
+                                                <?php if($row['link'] != ''){ ?>
                                                 <td><a class="btn btn-primary btn-outline-light mx-1" href="<?=$row['link']?>" target="_blank"><i class="fab fa-fw fa-github"></i></a></td>
-                                                <?php
+                                                <?php } else { ?>
+                                                <td>Il n'y a pas de lien Github</td>
+                                                <?php } 
                                                 echo "<td>";
                                                 if ($row['img1'] != '') {
                                                     echo '<img src="' . $row['img1'] . '" width="200" alt="">';

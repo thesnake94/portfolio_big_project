@@ -125,7 +125,7 @@ include "../includes/config.php";
 										echo '';
 								}
 								if ($row['img2'] != '') {
-									echo '<img class="img-fluid rounded mb-5 project-item h-10 w-10"
+									echo '<img class="img-fluid rounded mb-5 project-item "
 									src="' . $row['img2'] . '" alt=""> </br>';
 								} else {
 									echo '';
@@ -143,8 +143,11 @@ include "../includes/config.php";
 									<div class="col-lg-4 me-auto">
 										<p class="lead">
 											Veuillez trouver le lien du github ci dessous : </br></br>
-										<a class="btn btn-outline-light btn-social mx-1" href="<?=$row['link'];?>" target="_blank"><i class="fab fa-fw fa-github"></i></a>
-
+											<?php if($row['link'] != ''){ ?>
+												<a class="btn btn-outline-light btn-social mx-1" href="<?=$row['link'];?>" target="_blank"><i class="fab fa-fw fa-github"></i></a>
+											<?php } else { ?>
+												Il n'y a pas de lien Github pour ce projet
+											<?php } ?>
 										</p>
 									</div>
 								</div>
