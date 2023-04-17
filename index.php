@@ -252,7 +252,7 @@ $db = new Database();
 					<div class="col-md-6 col-lg-4 mb-5">
 						<h3 class="text-center text-white"><?php echo $row['title']; ?></h3>
 						<a class="portfolio-item mx-auto" href="project/project1.php?id=<?php echo $row['id']; ?>">
-							<img class="img-fluid h-100 w-100" src="/admin/<?php echo $row['img1']; ?>" alt="<?php echo $row['title']; ?>" />
+							<img class="img-fluid h-100 w-100" src="admin/<?php echo $row['img1']; ?>" alt="<?php echo $row['title']; ?>" />
 						</a>
 					</div>
 				<?php 
