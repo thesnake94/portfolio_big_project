@@ -189,12 +189,6 @@ include "../includes/config.php";
 						></a>
 						<a
 							class="btn btn-outline-light btn-social mx-1"
-							href="https://twitter.com/snake_zer"
-							target="_blank"
-							><i class="fab fa-fw fa-twitter"></i
-						></a>
-						<a
-							class="btn btn-outline-light btn-social mx-1"
 							href="https://www.linkedin.com/in/dayen-romdhane-1ba139252/"
 							target="_blank"
 							><i class="fab fa-fw fa-linkedin-in"></i

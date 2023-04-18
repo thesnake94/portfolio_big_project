@@ -28,6 +28,8 @@ $db = new Database();
 	<!-- Core theme CSS (includes Bootstrap)-->
 	<link href="portfolio/css/styles.css" rel="stylesheet" />
 	<style>  body{background-image: url('portfolio/assets/img/background_bulle.gif');}</style>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
 </head>
 
@@ -294,6 +296,7 @@ $db = new Database();
 			require 'PHPMailer/src/PHPMailer.php';
 			require 'PHPMailer/src/SMTP.php';
 			
+            
 
 			// Récupération des données soumises par le formulaire
 			if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['message'])) {
@@ -301,7 +304,22 @@ $db = new Database();
 				$prenom = mysqli_real_escape_string($db->link, $_POST['prenom']);
 				$email = mysqli_real_escape_string($db->link, $_POST['email']);
 				$message = mysqli_real_escape_string($db->link, $_POST['message']);
-
+                
+                		// Vérification du reCAPTCHA
+        		if(isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])){
+                    $secret = '6LeT4JklAAAAAFVxzvgnHjiSinD1WcevkAPrG3oo'; // Votre clé secrète reCAPTCHA
+                    $captcha = $_POST['g-recaptcha-response'];
+                    $ip = $_SERVER['REMOTE_ADDR'];
+                    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$ip);
+                    $responseKeys = json_decode($response,true);
+                    if(intval($responseKeys["success"]) !== 1) {
+                        alert('ReCAPTCHA: Erreur relative à la sécurité, veuillez confirmer que vous n\'êtes pas un robot.');
+                        exit;
+                    }
+                } else {
+                    alert('ReCAPTCHA: Erreur relative à la sécurité, veuillez confirmer que vous n\'êtes pas un robot.');
+                    exit;
+                }
 
 				// Préparation de la requête SQL d'insertion
 				$sql = "INSERT INTO contact (nom, prenom, email, message) VALUES ('$nom', '$prenom', '$email', '$message')";
@@ -326,7 +344,7 @@ $db = new Database();
 
 					// Contenu du message
 					$mail->isHTML(true);                                  
-					$mail->Subject = 'Nouveau message de '.$nom.' '.$prenom. 'depuis le portfolio.';
+					$mail->Subject = 'Nouveau message de '.$nom.' '.$prenom. ' depuis le portfolio.';
 					$mail->Body    = 'Nom: '.$nom.'<br>Prénom: '.$prenom.'<br>Email: '.$email.'<br>Message: '.$message;
 
 					$mail->send();
@@ -355,6 +373,7 @@ $db = new Database();
 				<input name="prenom" type="text" class="feedback-input" placeholder="Prénom" required="required" data-error="Prénom est obligatoire." />   
 				<input name="email" type="email" class="feedback-input" placeholder="Email" required="required" data-error="Un email valid est obligatoire." />
 				<textarea name="message" class="feedback-input" placeholder="Message" required="required" data-error="Veuillez remplir le champ Message."></textarea>
+				 <div class="g-recaptcha" data-sitekey="6LeT4JklAAAAAHjj-1c8A6or6v1TXjlAd7Hxrcaw"></div></br>
 				<input class="btnC center" type="submit" value="ENVOYER"/>
 			</form>
 
@@ -433,8 +452,6 @@ $db = new Database();
 					<h4 class="text-uppercase mb-4">Mes réseaux sociaux</h4>
 					<a class="btn btn-outline-light btn-social mx-1" href="https://github.com/thesnake94"
 						target="_blank"><i class="fab fa-fw fa-github"></i></a>
-					<a class="btn btn-outline-light btn-social mx-1" href="https://twitter.com/snake_zer"
-						target="_blank"><i class="fab fa-fw fa-twitter"></i></a>
 					<a class="btn btn-outline-light btn-social mx-1"
 						href="https://www.linkedin.com/in/dayen-romdhane-1ba139252/" target="_blank"><i
 							class="fab fa-fw fa-linkedin-in"></i></a>
@@ -471,6 +488,7 @@ $db = new Database();
 	<!-- Core theme JS-->
 	<script src="js/scripts.js"></script>
 	<script src="portfolio/js/main.js"></script>
+
 </body>
 
 </html>
