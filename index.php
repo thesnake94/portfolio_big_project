@@ -287,6 +287,14 @@ $db = new Database();
 
 
 			<?php 
+			use PHPMailer\PHPMailer\PHPMailer;
+			use PHPMailer\PHPMailer\Exception;
+
+			require 'PHPMailer/src/Exception.php';
+			require 'PHPMailer/src/PHPMailer.php';
+			require 'PHPMailer/src/SMTP.php';
+			
+
 			// Récupération des données soumises par le formulaire
 			if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['message'])) {
 				$nom = mysqli_real_escape_string($db->link, $_POST['nom']);
@@ -298,6 +306,34 @@ $db = new Database();
 				// Préparation de la requête SQL d'insertion
 				$sql = "INSERT INTO contact (nom, prenom, email, message) VALUES ('$nom', '$prenom', '$email', '$message')";
 
+				// initialiser l'objet PHPMailer
+				$mail = new PHPMailer(true);
+
+				try {
+					// Configuration du serveur SMTP
+					$mail->isSMTP();                                           
+					$mail->Host       = 'smtp.gmail.com';                       
+					$mail->SMTPAuth   = true;                                   
+					$mail->Username   = 'dayen.portfolio@gmail.com';            
+					$mail->Password   = 'zjyietgtcngdkfjw';                    
+					$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+					$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+					$mail->Port       = 465;                                    
+
+					// Destinataire et expéditeur
+					$mail->setFrom($email);
+					$mail->addAddress('dromdhane@guardiaschool.fr');             
+
+					// Contenu du message
+					$mail->isHTML(true);                                  
+					$mail->Subject = 'Nouveau message de '.$nom.' '.$prenom. 'depuis le portfolio.';
+					$mail->Body    = 'Nom: '.$nom.'<br>Prénom: '.$prenom.'<br>Email: '.$email.'<br>Message: '.$message;
+
+					$mail->send();
+				} catch (Exception $e) {
+					echo "<script>alert('Votre message n'a pas être envoyé !');</script>";
+				}
+
 				// Exécution de la requête SQL
 				if (mysqli_query($db->link, $sql)) {
 					echo "<script>alert('Votre message a été envoyé avec succès !');</script>";
@@ -307,8 +343,12 @@ $db = new Database();
 				mysqli_close($db->link);
 				
 			}
-			  
+
+
+
+	
 			?>
+
 			
 			<form method="POST" >      
 				<input name="nom" type="text" class="feedback-input" placeholder="Nom" required="required" data-error="Nom est obligatoire." />   
