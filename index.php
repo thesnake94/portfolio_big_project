@@ -88,7 +88,7 @@ $db = new Database();
 			<div class="divider-custom divider-light">
 				<div class="divider-custom-line"></div>
 				<div class="divider-custom-icon">
-					<i class="fas fa-shield"></i>
+					<a href="egg/matrix.php"><i class="fas fa-shield"></i></a>
 				</div>
 				<div class="divider-custom-line"></div>
 			</div>
@@ -322,11 +322,11 @@ $db = new Database();
                     $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$captcha."&remoteip=".$ip);
                     $responseKeys = json_decode($response,true);
                     if(intval($responseKeys["success"]) !== 1) {
-                        alert('ReCAPTCHA: Erreur relative à la sécurité, veuillez confirmer que vous n\'êtes pas un robot.');
+                        echo "<script>alert('ReCAPTCHA: veuillez confirmer que vous n\\'êtes pas un robot.');</script>";
                         exit;
                     }
                 } else {
-                    alert('ReCAPTCHA: Erreur relative à la sécurité, veuillez confirmer que vous n\'êtes pas un robot.');
+					echo "<script>alert('ReCAPTCHA: veuillez confirmer que vous n\\'êtes pas un robot.');</script>";
                     exit;
                 }
 
@@ -477,7 +477,7 @@ $db = new Database();
 	</footer>
 	<!-- Copyright Section-->
 	<div class="copyright py-4 text-center text-white">
-		<div class="container"><a href="admin/login.php" style="text-decoration: none; color: white;"><small>Copyright </a> &copy;  ROMDHANE Dayen 2023</small></div>
+		<div class="container"><small>Copyright &copy;  ROMDHANE <a href="admin/login.php" style="text-decoration: none; color: white;">D</a>ayen 2023</small></div>
 	</div>
 
 

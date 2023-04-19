@@ -93,6 +93,10 @@
 			.score_val {
 				color: gold;
 			}
+			.btn {
+				z-index: 9999;
+			}
+
 		</style>
 	</head>
 
