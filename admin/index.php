@@ -54,6 +54,16 @@ if (!isset($_SESSION['user_id'])) {
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            <!-- about -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="about.php">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>About Me</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"

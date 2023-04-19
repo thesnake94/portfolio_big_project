@@ -113,19 +113,28 @@ $db = new Database();
 			<!-- About Section Content-->
 			<div class="row">
 				<div class="col-lg-4 ms-auto">
-					<p class="lead1">
-						Je suis actuellement étudiant en première année à Guardia Cybersecurity
-						School, la première école d'informatique dédiée à la cybersécurité.
-						<br />
+					<?php 
+						// Exécution de la requête SQL
+					$sql = "SELECT * FROM about";
+					$result = mysqli_query($conn, $sql);
 
+					// Vérifier si des données ont été trouvées
+					if (mysqli_num_rows($result) > 0) {
+						// Afficher les données dans des td
+						while($row = mysqli_fetch_assoc($result)) {
+					?>
+					<p class="lead1">
+						<?php echo $row['text1']; ?>
+						<br />
 					</p>
 				</div>
 				<div class="col-lg-4 me-auto">
 					<p class="lead">
-						Autonome et rigoureux, mes 7 années de natation, dont 3 années au niveau
-						national, m'ont apporté la discipline et le sens de l'effort nécessaire
-						pour être rapidement opérationnel.
+						<?php echo $row['text2']; ?>
+
 					</p>
+					<?php }} 
+					?>
 				</div>
 			</div>
 			<!-- About Section Button-->

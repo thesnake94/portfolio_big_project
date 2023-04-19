@@ -165,18 +165,15 @@ if (!isset($_SESSION['user_id'])) {
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nom</th>
-                                            <th>Prénom</th>
-                                            <th>Email</th>
-                                            <th>Message</th>
-                                            <th>Répondre</th>
-                                            <th>Supprimer</th>
+                                            <th>Partie 1</th>
+                                            <th>Partie 2</th>
+                                            <th>Modifier</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         // Sélectionner toutes les données de la table project
-                                        $sql = "SELECT * FROM contact";
+                                        $sql = "SELECT * FROM about";
                                         $result = mysqli_query($conn, $sql);
 
                                         // Vérifier si des données ont été trouvées
@@ -185,12 +182,9 @@ if (!isset($_SESSION['user_id'])) {
                                             while($row = mysqli_fetch_assoc($result)) {
                                         
                                                 echo "<tr>";
-                                                echo "<td>" . $row['nom'] . "</td>";
-                                                echo "<td>" . $row['prenom'] . "</td>";
-                                                echo "<td>" . $row['email'] . "</td>";
-                                                echo "<td>" . $row['message'] . "</td>"; 
-                                                echo "<td><a href='mailto:" . $row['email'] . "'>Répondre</a></td>"; 
-                                                echo "<td><a href='del_edit/delete_msg.php?id=" . $row['id'] . "' onclick=\"return confirm('Etes vous sur de vouloir supprimer ?')\">Supprimer</a></td>";
+                                                echo "<td>" . $row['text1'] . "</td>";
+                                                echo "<td>" . $row['text2'] . "</td>";
+                                                echo '<td><a href="edit_about.php?id=' . $row['id'] . '">Modifier</a></td>';
                                                 echo "<tr>";
                                             
                                             }

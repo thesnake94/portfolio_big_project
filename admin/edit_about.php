@@ -6,7 +6,7 @@ $db = new Database();
 
 session_start();
 if (!isset($_SESSION['user_id'])) {
-    header('Location: login.php');
+    header('Location: ../login.php');
     exit();
 }
 
@@ -23,7 +23,7 @@ if (!isset($_SESSION['user_id'])) {
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Projects - Admin</title>
+    <title>About - Admin</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -143,7 +143,7 @@ if (!isset($_SESSION['user_id'])) {
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="logout.php">
+                                <a class="dropdown-item" href="../logout.php">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Se déconnecter
                                 </a>
@@ -169,7 +169,7 @@ if (!isset($_SESSION['user_id'])) {
                     $id = $_GET['id'];
 
                     // Récupération des données existantes du projet pour l'id spécifié
-                    $sql = "SELECT * FROM project WHERE id = $id";
+                    $sql = "SELECT * FROM about WHERE id = $id";
                     $result = mysqli_query($conn, $sql);
 
                     // Vérification si des données ont été trouvées
@@ -179,57 +179,17 @@ if (!isset($_SESSION['user_id'])) {
                         $row = mysqli_fetch_assoc($result);
 
                         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                            $title = mysqli_real_escape_string($db->link, $_POST["title"]);
-                            $number = mysqli_real_escape_string($db->link, $_POST["number"]);
-                            $description = mysqli_real_escape_string($db->link, $_POST["description"]);
-                            $link = mysqli_real_escape_string($db->link, $_POST["link"]);
-
+                            $text1 = mysqli_real_escape_string($db->link, $_POST["text1"]);
+                            $text2 = mysqli_real_escape_string($db->link, $_POST["text2"]);
                             
-                            // Vérification si des images existent déjà dans la base de données
-                            $img1_in_db = $row['img1'];
-                            $img2_in_db = $row['img2'];
-
-                            // Vérification si des images ont été téléchargées
-                            if (!empty($_FILES['img1']['name'])) {
-                                $img1_name = $_FILES['img1']['name'];
-                                $img1_size = $_FILES['img1']['size'];
-                                $img1_tmp = $_FILES['img1']['tmp_name'];
-
-                                $div1 = explode('.', $img1_name);
-                                $img1_ext = strtolower(end($div1));
-                                $unique_image1 = substr(md5(time()), 0, 10) . '.' . $img1_ext;
-                                $uploaded_image1 = "../uploads/" . $unique_image1;
-
-                                move_uploaded_file($img1_tmp, $uploaded_image1);
-                            } else {
-                                $uploaded_image1 = $img1_in_db;
-                            }
-
-                            if (!empty($_FILES['img2']['name'])) {
-                                $img2_name = $_FILES['img2']['name'];
-                                $img2_size = $_FILES['img2']['size'];
-                                $img2_tmp = $_FILES['img2']['tmp_name'];
-
-                                $div2 = explode('.', $img2_name);
-                                $img2_ext = strtolower(end($div2));
-                                $unique_image2 = substr(md5(time()), 0, 10) . '.' . $img2_ext;
-                                $uploaded_image2 = "../uploads/" . $unique_image2;
-
-                                move_uploaded_file($img2_tmp, $uploaded_image2);
-                            } else {
-                                $uploaded_image2 = $img2_in_db;
-                            }
-
                             // Vérification si tous les champs ont été remplis
-                            if (empty($title)) {
+                            if (empty($text1) && empty($text2)) {
                                 echo "<script>alert('Veuillez remplir tous les champs !');</script>";
                             } else {
-                                // Préparation de la requête SQL pour la mise à jour du projet
-                                $sql = "UPDATE project SET number='$number', title='$title', description='$description', link='$link', img1='$uploaded_image1', img2='$uploaded_image2' WHERE id=$id";
+                                $sql = "UPDATE about SET text1='$text1', text2='$text2' WHERE id=$id";
 
-                                // Exécution de la requête SQL de mise à jour
                                 if (mysqli_query($conn, $sql)) {
-                                    echo "<script>alert('Le projet a été mis à jour avec succès !'); window.location.replace('project.php');</script>";
+                                    echo "<script>alert('La description a été mis à jour avec succès !'); window.location.replace('about.php');</script>";
                                 }
                             }
                         } 
@@ -241,28 +201,12 @@ if (!isset($_SESSION['user_id'])) {
                     ?>
 
                             <form action="" method="POST" enctype="multipart/form-data">
-                                <label for="title">Titre du projet:</label><br>
-                                <input type="text" required="required" id="title" name="title" value="<?=$row['title']?>"><br><br>
-                                <label for="number">Projet n°:</label><br>
-                                <input type="number" required="required" id="number" name="number" value="<?=$row['number']?>"><br><br>
-                                <label for="description">Description:</label><br>
-                                <textarea id="description" required="required" name="description"><?=$row['description']?></textarea><br><br>
-                                <label for="link">Lien github du projet:</label><br>
-                                <input type="text" id="title" name="link" value="<?=$row['link']?>"><br><br>
-                                <?php if ($row['img1'] != '') { ?>
-                                <label>Image 1 :</label><br>
-                                <img src="<?=$row['img1']?>" width="200" alt="img1"><br><br>
-                                <?php } ?>
-                                <label for="img1">Changer l'image 1:</label><br>
-                                <input type="file" id="img1" name="img1"><br><br>
-                                <?php if ($row['img2'] != '') { ?>
-                                    <label>Image 2 :</label><br>
-                                    <img src="<?=$row['img2']?>" width="200" alt="img"><br><br>
-                                <?php } ?>
-                                <label for="img2">Changer l'image 2:</label><br>
-                                <input type="file" id="img2" name="img2"><br><br>
+                                <label for="title">Partie 1 de la description :</label><br>
+                                <textarea id="description" required="required" name="text1"><?=$row['text1']?></textarea><br><br>
+                                <label for="description">Partie 2 de la description :</label><br>
+                                <textarea id="description" required="required" name="text2"><?=$row['text2']?></textarea><br><br>
                                 <input type="submit" value="Modifier">
-                                <a href="project.php">Annuler</a>
+                                <a href="about.php">Annuler</a>
                             </form>
 
 
