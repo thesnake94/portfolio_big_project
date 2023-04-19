@@ -12,7 +12,7 @@
 			content="Portfolio, projects, cv, curiculum vitae, projet, dayen, romdhane, expérience, freelancer, indépendant, compétences, stage, guardia."
 		/>
 		<meta name="author" content="Romdhane Dayen" />
-		<title>Projets ROMDHANE Dayen</title>
+		<title>Mes jeux - ROMDHANE Dayen</title>
 		<!-- Favicon-->
 		<link rel="icon" type="image/x-icon" href="../portfolio/assets/pdp moi png.png" />
 		<link
@@ -76,69 +76,38 @@
 			</div>
 		</nav>
 
-		<header class="masthead text-white text-center bg-image">
+		<header class="masthead text-white text-center bg-dark">
 			<div class="container d-flex align-items-center flex-column">
 				<!-- Masthead Heading-->
-				<h2 class="masthead-heading text-uppercase mb-0">Dayen ROMDHANE</h2>
+				<h2 class="masthead-heading text-uppercase mb-0">TOUS MES JEUX</h2>
 				<!-- Icon etoile-->
 				<div class="divider-custom divider-light">
 					<div class="divider-custom-line"></div>
 					<div class="divider-custom-icon">
-						<i class="fas fa-shield"></i>
+						<i class="fas fa-gamepad"></i>
 					</div>
 					<div class="divider-custom-line"></div>
 				</div>
-				<!-- Masthead Subheading-->
-				<h1 class="masthead-subheading font-weight-light mb-0">Mes jeux</h1>
-
-				<!-- <p class="masthead-subheading font-weight-light mb-0">Etudiant en cybersécurité</p> -->
 			</div>
 		</header>
 
 		<!-- game Section-->
 		<section class="page-section portfolio bg-dark" id="jeux">
 			<div class="container">
-				<!-- Portfolio Section Heading-->
-				<h2 class="page-section-heading text-center text-uppercase text-white mb-0">
-					Tous mes jeux
-				</h2>
-				<!-- Icon Divider-->
-				<div class="divider-custom divider-light">
-					<div class="divider-custom-line"></div>
-					<div class="divider-custom-icon"><i class="fas fa-tasks"></i></div>
-					<div class="divider-custom-line"></div>
-				</div>
 				<!-- game Grid Items-->
 				<div class="row justify-content-center">
 					<!-- game Item 1-->
 					<div class="col-md-6 col-lg-4 mb-5">
-						<h3 class="text-center text-white">The snake game</h3>
-						<a href="../game/snake/snake.php">
+						<h3 class="text-center text-white">The Flappy bird</h3>
+						<a href="../game/aviator/bird.php">
 							<div class="portfolio-item mx-auto">
 								<img
 									class="img-fluid h-100 w-100"
-									src="../game/img/snake_game.png"
+									src="../game/img/avion.png"
 									alt="project intro système informatique"
 								/>
 							</div>
 						</a>
-					</div>
-
-					<!-- game Item 2-->
-					<div class="col-md-6 col-lg-4 mb-5">
-						<h3 class="text-center text-white">Intro algo Python</h3>
-
-						<div
-							class="portfolio-item mx-auto"
-							data-bs-toggle="modal"
-							data-bs-target="#portfolioModal2"
-						>
-							<img
-								class="img-fluid h-100 w-100"
-								src="../portfolio/assets/img/project/project python.jpg"
-								alt="project algo python"
-							/>
-						</div>
 					</div>
 				</div>
 			</div>
